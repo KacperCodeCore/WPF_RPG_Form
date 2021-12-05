@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.0.31912.275
+VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "P_Lista_3_formularz", "P_Lista_3_formularz\P_Lista_3_formularz.csproj", "{B40F6E43-9CA4-48D8-A60E-7900DFEE55B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_RPG_Form", "WPF_RPG_Form\WPF_RPG_Form.csproj", "{B40F6E43-9CA4-48D8-A60E-7900DFEE55B4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +20,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {21522426-CB6B-4C4C-84B0-C68D8BC689A7}
+		SolutionGuid = {BB5433A9-4F6B-4CD0-84B4-C0CFC803CF1E}
 	EndGlobalSection
 EndGlobal
