@@ -51,9 +51,9 @@
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Button Click="Button_Click" Grid.Row="0" Content="Add Person" Grid.ColumnSpan="4"/>
-            <Button Click="Button_Click" Grid.Row="1" Content="Edit" Height="30" VerticalAlignment="Top"/>
-            <Button Click="Button_Click" Grid.Row="2" Content="Add Random" Grid.ColumnSpan="4"/>
+            <Button Click="Button_Add" Grid.Row="0" Content="Add Heroe" Grid.ColumnSpan="4"/>
+            <Button Click="Button_Edit" Grid.Row="1" Content="Edit" Height="30" VerticalAlignment="Top"/>
+  
         </Grid>
 
     </Grid>

@@ -77,9 +77,11 @@
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
             </Grid.RowDefinitions>
-            <Button Click="Button_Click" Grid.Row="1" Content="Add Person"/>
-            <Button Grid.Row="2" Content="Options"/>
+            <Button Click="Button_Add" Grid.Row="1" Content="Confirm"/>
+            <Button Click="Button_Delete" Grid.Row="2" Content="Delete"/>
+
         </Grid>
     </Grid>
 

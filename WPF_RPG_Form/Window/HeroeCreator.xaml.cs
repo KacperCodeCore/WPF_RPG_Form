@@ -19,21 +19,21 @@ namespace P_Lista_3_formularz
     /// </summary>
     public partial class HeroeCreator : Window
     {
-        public bool IsOkPressed { get; set; }
+        public string IsOkPressed { get; set; }
         public HeroeCreator()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Add(object sender, RoutedEventArgs e)
         {
-            //var button = sender as Button;
-            //if (button.Content.ToString() == "Add Person")
-            //{
+            IsOkPressed = "add";
+            this.Close();
+        }
 
-            //    Heroe.ListoOfHeroes.Add(new Heroe("oldfryd", HeroeType.Warrior.ToString(), 70, 200));
-            //}
-            IsOkPressed = true;
+        private void Button_Delete(object sender, RoutedEventArgs e)
+        {
+            IsOkPressed = "delete";
             this.Close();
         }
     }

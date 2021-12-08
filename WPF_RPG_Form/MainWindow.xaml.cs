@@ -29,37 +29,47 @@ namespace P_Lista_3_formularz
 
             DG.ItemsSource = Heroe.ListoOfHeroes;
 
-            Heroe.ListoOfHeroes.Add(new Heroe("kacper", HeroeType.Hunter.ToString(), 44, 25, "timeloop", "sword"));
-            Heroe.ListoOfHeroes.Add(new Heroe("Jan", HeroeType.Paladin.ToString(), 554, 25, "timeloop", "sword"));
+            //Heroe.ListoOfHeroes.Add(new Heroe("kacper", HeroeType.Hunter.ToString(), 44, 25, "timeloop", "sword"));
+            //Heroe.ListoOfHeroes.Add(new Heroe("Jan", HeroeType.Paladin.ToString(), 554, 25, "timeloop", "sword"));
 
             //DG.ItemsSource = GetPlayer();
             DG.ItemsSource = Heroe.ListoOfHeroes;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Add(object sender, RoutedEventArgs e)
         {
-            var button = sender as Button;
-            if (button.Content.ToString() == "Add Person")
+            var widow = new HeroeCreator();
+            var heroe = new Heroe();
+            widow.DataContext = heroe;
+            widow.ShowDialog();   
+            if (widow.IsOkPressed == "add")
             {
-                var createHeroeWindow = new HeroeCreator();
-                var heroe = new Heroe();
-                createHeroeWindow.DataContext = heroe;
-                createHeroeWindow.ShowDialog();   
-                if (createHeroeWindow.IsOkPressed)
-                {
-                    Heroe.ListoOfHeroes.Add(heroe);
-                    DG.Items.Refresh(); //??? nie potrzeba, tylko testowo
-                }
+                Heroe.ListoOfHeroes.Add(heroe);
+                DG.Items.Refresh(); //??? nie potrzeba, tylko testowo
             }
-            else if (button.Content.ToString() == "Edit")
+        }
+        private void Button_Edit(object sender, RoutedEventArgs e)
+        {
+            if (DG.SelectedItem != null)
             {
-                if (DG.SelectedItem != null)
+                var window = new HeroeCreator();
+                var Heroe = new Heroe((Heroe)DG.SelectedItem);
+                window.DataContext = Heroe;
+                window.ShowDialog();
+                if (window.IsOkPressed == "add")
                 {
-                    int index = Heroe.ListoOfHeroes.IndexOf((Heroe)DG.SelectedItem);
-
-                    var window = new HeroeCreator();
-                    window.ShowDialog();
+                    int index = Heroe.ListoOfHeroes.IndexOf(DG.SelectedItem as Heroe);
+                    Heroe.ListoOfHeroes[index] = Heroe;
+                    DG.Items.Refresh();
                 }
+                else if (window.IsOkPressed == "delete")
+                {
+                    int index = Heroe.ListoOfHeroes.IndexOf(DG.SelectedItem as Heroe);
+                    Heroe.ListoOfHeroes.RemoveAt(index);
+                    DG.Items.Refresh();
+                }
+
+
             }
 
         }
@@ -68,5 +78,7 @@ namespace P_Lista_3_formularz
         {
             Seriazation.SerializeToXml<List<Heroe>>(Heroe.ListoOfHeroes, $"{Environment.CurrentDirectory}\\PersonsList.xml");
         }
+
+  
     }
 }
