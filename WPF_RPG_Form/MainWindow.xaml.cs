@@ -60,14 +60,11 @@ namespace P_Lista_3_formularz
                     var window = new HeroeCreator();
                     window.ShowDialog();
                 }
-                
-                //PersonCreator.ContentStringFormatPr
-
-
             }
 
         }
-        private void NeedSerializeData(object sender, System.ComponentModel.CancelEventArgs e)
+
+        private void Window_Closing(object sender, CancelEventArgs e)
         {
             Seriazation.SerializeToXml<List<Heroe>>(Heroe.ListoOfHeroes, $"{Environment.CurrentDirectory}\\PersonsList.xml");
         }
