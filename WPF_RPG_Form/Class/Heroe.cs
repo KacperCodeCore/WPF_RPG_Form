@@ -4,22 +4,27 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 
-namespace P_Lista_3_formularz
+namespace WPF_RPG_Form
 {
     public class Heroe
     {
         public static List<Heroe> ListoOfHeroes = new List<Heroe>();
+        public int id { get; set; }
         public string name { get; set; }
         public string type { get; set; }
         public int hp { get; set; }
         public int mana { get; set; }
-        public string skill { get; set; }
+        public int skill { get; set; }
         public string weapon { get; set; }
+        //public Image image { get; set; }          
 
         public Heroe(){}
-        public Heroe(string name, string type, int hp, int mana, string skill, string weapon)
+        public Heroe(int id, string name, string type, int hp, int mana, int skill, string weapon)
         {
+            this.id = id;
             this.name = name;
             this.type = type;
             this.hp = hp;
@@ -29,6 +34,7 @@ namespace P_Lista_3_formularz
         }
         public Heroe(Heroe heroe)
         {
+            this.id = heroe.id;
             this.name = heroe.name;
             this.type = heroe.type;
             this.hp = heroe.hp;

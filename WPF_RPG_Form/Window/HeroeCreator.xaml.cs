@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace P_Lista_3_formularz
+namespace WPF_RPG_Form
 {
     /// <summary>
     /// Interaction logic for PersonCreator.xaml

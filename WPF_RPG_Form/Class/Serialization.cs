@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
-namespace P_Lista_3_formularz
+namespace WPF_RPG_Form
 {
     internal class Seriazation
     {

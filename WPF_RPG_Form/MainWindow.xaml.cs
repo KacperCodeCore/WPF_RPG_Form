@@ -8,7 +8,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Data;
 using System.IO;
 
-namespace P_Lista_3_formularz
+namespace WPF_RPG_Form
 {
 
     public partial class MainWindow : Window
@@ -17,22 +17,19 @@ namespace P_Lista_3_formularz
         public MainWindow()
         {
             InitializeComponent();
-            bool fileExists = File.Exists($"{Environment.CurrentDirectory}\\PersonsList.xml");
-            if (!fileExists)
-            {
-                Heroe.ListoOfHeroes = new List<Heroe>();
-            }
-            else
-            {
-                Heroe.ListoOfHeroes = Seriazation.DeserializeToObject<List<Heroe>>($"{Environment.CurrentDirectory}\\PersonsList.xml");
-            }
+            //bool fileExists = File.Exists($"{Environment.CurrentDirectory}\\ListOfHeroes.xml");
+            //if (!fileExists)
+            //{
+            //    Heroe.ListoOfHeroes = new List<Heroe>();
+            //}
+            //else
+            //{
+            //    Heroe.ListoOfHeroes = Seriazation.DeserializeToObject<List<Heroe>>($"{Environment.CurrentDirectory}\\ListOfHeroes.xml");
+            //}
 
-            DG.ItemsSource = Heroe.ListoOfHeroes;
 
-            //Heroe.ListoOfHeroes.Add(new Heroe("kacper", HeroeType.Hunter.ToString(), 44, 25, "timeloop", "sword"));
-            //Heroe.ListoOfHeroes.Add(new Heroe("Jan", HeroeType.Paladin.ToString(), 554, 25, "timeloop", "sword"));
+            DataBase dataBase = new DataBase();
 
-            //DG.ItemsSource = GetPlayer();
             DG.ItemsSource = Heroe.ListoOfHeroes;
         }
 
@@ -69,16 +66,14 @@ namespace P_Lista_3_formularz
                     DG.Items.Refresh();
                 }
 
-
             }
 
         }
 
         private void Window_Closing(object sender, CancelEventArgs e)
         {
-            Seriazation.SerializeToXml<List<Heroe>>(Heroe.ListoOfHeroes, $"{Environment.CurrentDirectory}\\PersonsList.xml");
+            Seriazation.SerializeToXml<List<Heroe>>(Heroe.ListoOfHeroes, $"{Environment.CurrentDirectory}\\ListOfHeroes.xml");
         }
 
-  
     }
 }

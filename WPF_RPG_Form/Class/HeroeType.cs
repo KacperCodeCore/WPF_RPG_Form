@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace P_Lista_3_formularz
+namespace WPF_RPG_Form
 {
     internal enum HeroeType
     {
