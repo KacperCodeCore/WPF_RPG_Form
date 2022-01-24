@@ -13,7 +13,7 @@ namespace WPF_RPG_Form
 
     public partial class MainWindow : Window
     {
-        
+        DataBase dataBase = new DataBase();
         public MainWindow()
         {
             InitializeComponent();
@@ -28,21 +28,30 @@ namespace WPF_RPG_Form
             //}
 
 
-            DataBase dataBase = new DataBase();
+            dataBase.ConectHeroe();
 
             DG.ItemsSource = Heroe.ListoOfHeroes;
         }
 
         private void Button_Add(object sender, RoutedEventArgs e)
         {
+            //var widow = new HeroeCreator();
+            //var heroe = new Heroe();
+            //widow.DataContext = heroe;
+            //widow.ShowDialog();   
+            //if (widow.IsOkPressed == "add")
+            //{
+            //    Heroe.ListoOfHeroes.Add(heroe);
+            //    DG.Items.Refresh(); //??? nie potrzeba, tylko testowo
+            //}
             var widow = new HeroeCreator();
             var heroe = new Heroe();
             widow.DataContext = heroe;
-            widow.ShowDialog();   
+            widow.ShowDialog();
             if (widow.IsOkPressed == "add")
             {
-                Heroe.ListoOfHeroes.Add(heroe);
-                DG.Items.Refresh(); //??? nie potrzeba, tylko testowo
+                dataBase.AddHeroe(heroe.name, heroe.type, heroe.hp, heroe.mana, heroe.skill, heroe.weapon);
+                dataBase.ConectHeroe();
             }
         }
         private void Button_Edit(object sender, RoutedEventArgs e)

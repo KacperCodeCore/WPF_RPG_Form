@@ -13,31 +13,23 @@ namespace WPF_RPG_Form
         static int id;
         public DataBase()
         {
-            Add();
-            Update(4, "name1", "type1", 99, 1, "11", "weapon1");
-            Delete(6);
-            Conect();
+            //AddHeroe();
+            //UpdateHeroe(4, "name1", "type1", 99, 1, "11", "weapon1");
+            //DeleteHeroe(6);
+            //ConectHeroe();
 
         }
 
-        private void Conect()
+        public void ConectHeroe()
         {
-            string connetionString;
-            SqlConnection cnn;
-
-            connetionString = @"Data Source=DESKTOP-HUCK62B;Initial Catalog=HeroeData;User ID=sa;Password=kacper1";
-            cnn = new SqlConnection(connetionString);
-            cnn.Open();
-            //MessageBox.Show("conection open !");
-
-            cnn.Close();
+            string connetionString = @"Data Source=DESKTOP-HUCK62B;Initial Catalog=HeroeData;User ID=sa;Password=kacper1";
+            SqlConnection cnn = new SqlConnection(connetionString);
 
             cnn.Open();
             SqlCommand command;
             SqlDataReader dataReader;
-            String sql/*, Output */= "";
 
-            sql = "Select id,name,type,hp,mana,skill,weapon From heroes";
+            String sql = "Select id,name,type,hp,mana,skill,weapon From heroes";
             command = new SqlCommand(sql, cnn);
             dataReader = command.ExecuteReader();
             while (dataReader.Read())
@@ -51,16 +43,14 @@ namespace WPF_RPG_Form
                     dataReader.GetValue(5).ToString(),
                     dataReader.GetValue(6).ToString());
                 Heroe.ListoOfHeroes.Add(newHeroe);
-                //Output = Output + dataReader.GetValue(0) + " - " + dataReader.GetValue(1) + " - " + dataReader.GetValue(2) + "\n";
             }
-            //MessageBox.Show(Output);
 
             dataReader.Close();
             command.Dispose();
             cnn.Close();
         }
 
-        public void Update(int id, string name, string type, int hp, int mana, string skill, string weapon)
+        public void UpdateHeroe(int id, string name, string type, int hp, int mana, string skill, string weapon)
         {
             string connetionString;
             SqlConnection cnn;
@@ -81,7 +71,7 @@ namespace WPF_RPG_Form
             cnn.Close();
         }
 
-        public void Delete(int id)
+        public void DeleteHeroe(int id)
         {
             string connetionString;
             SqlConnection cnn;
@@ -101,19 +91,20 @@ namespace WPF_RPG_Form
             command.Dispose();
             cnn.Close();
         }
-        public void Add()
+        public void AddHeroe(string name, string type, int hp, int mana, string skill, string weapon)
         {
             
 
             string connetionString = @"Data Source=DESKTOP-HUCK62B;Initial Catalog=HeroeData;User ID=sa;Password=kacper1";
-            //string query = "INSERT INTO [HeroeData].[dbo].[Heroes]([name],[type],[hp],[mana],[skill],[weapon],[picture])VALUES ('name6', 'type6', 6, 6, 's6', 'w6', NULL)";
-            string query = "EXECUTE InsertHeroe n, t, 1, 1, s, w, p";
+            string query = $"EXECUTE InsertHeroe {name}, {type}, {hp}, {mana}, {skill}, {weapon}, NULL";
 
             SqlConnection connection = new SqlConnection(connetionString);
-            SqlCommand command = new SqlCommand(query, connection);
+            SqlCommand cnn = new SqlCommand(query, connection);
             connection.Open();
-            command.ExecuteNonQuery();
+            cnn.ExecuteNonQuery();
+
             connection.Close();
+            cnn.Dispose();
 
         }
 
