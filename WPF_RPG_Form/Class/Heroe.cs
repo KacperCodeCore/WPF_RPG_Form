@@ -17,12 +17,12 @@ namespace WPF_RPG_Form
         public string type { get; set; }
         public int hp { get; set; }
         public int mana { get; set; }
-        public int skill { get; set; }
+        public string skill { get; set; }
         public string weapon { get; set; }
         //public Image image { get; set; }          
 
         public Heroe(){}
-        public Heroe(int id, string name, string type, int hp, int mana, int skill, string weapon)
+        public Heroe(int id, string name, string type, int hp, int mana, string skill, string weapon)
         {
             this.id = id;
             this.name = name;

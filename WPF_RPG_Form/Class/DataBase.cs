@@ -10,10 +10,12 @@ namespace WPF_RPG_Form
 {
     internal class DataBase
     {
+        static int id;
         public DataBase()
         {
-            Update(4, "name1", "type1", 99, 1, 11, "weapon1");
-            Delete(4);
+            Add();
+            Update(4, "name1", "type1", 99, 1, "11", "weapon1");
+            Delete(6);
             Conect();
 
         }
@@ -46,7 +48,7 @@ namespace WPF_RPG_Form
                     dataReader.GetValue(2).ToString(),
                     Convert.ToInt32(dataReader.GetValue(3)),
                     Convert.ToInt32(dataReader.GetValue(4)),
-                    Convert.ToInt32(dataReader.GetValue(5)),
+                    dataReader.GetValue(5).ToString(),
                     dataReader.GetValue(6).ToString());
                 Heroe.ListoOfHeroes.Add(newHeroe);
                 //Output = Output + dataReader.GetValue(0) + " - " + dataReader.GetValue(1) + " - " + dataReader.GetValue(2) + "\n";
@@ -58,7 +60,7 @@ namespace WPF_RPG_Form
             cnn.Close();
         }
 
-        public void Update(int id, string name, string type, int hp, int mana, int skill, string weapon)
+        public void Update(int id, string name, string type, int hp, int mana, string skill, string weapon)
         {
             string connetionString;
             SqlConnection cnn;
@@ -101,8 +103,20 @@ namespace WPF_RPG_Form
         }
         public void Add()
         {
+            
+
+            string connetionString = @"Data Source=DESKTOP-HUCK62B;Initial Catalog=HeroeData;User ID=sa;Password=kacper1";
+            //string query = "INSERT INTO [HeroeData].[dbo].[Heroes]([name],[type],[hp],[mana],[skill],[weapon],[picture])VALUES ('name6', 'type6', 6, 6, 's6', 'w6', NULL)";
+            string query = "EXECUTE InsertHeroe n, t, 1, 1, s, w, p";
+
+            SqlConnection connection = new SqlConnection(connetionString);
+            SqlCommand command = new SqlCommand(query, connection);
+            connection.Open();
+            command.ExecuteNonQuery();
+            connection.Close();
 
         }
+
 
     }
 
