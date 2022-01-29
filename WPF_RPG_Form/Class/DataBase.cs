@@ -13,16 +13,17 @@ namespace WPF_RPG_Form
         static int id;
         public DataBase()
         {
+            ConectHeroe();
             //AddHeroe();
             //UpdateHeroe(4, "name1", "type1", 99, 1, "11", "weapon1");
             //DeleteHeroe(6);
-            //ConectHeroe();
+
 
         }
 
         public void ConectHeroe()
         {
-            string connetionString = @"Data Source=DESKTOP-HUCK62B;Initial Catalog=HeroeData;User ID=sa;Password=kacper1";
+            string connetionString = @"Data Source=CODEBAKERTY;Initial Catalog=HeroeData;User ID=sa;Password=kacper1";
             SqlConnection cnn = new SqlConnection(connetionString);
 
             cnn.Open();
@@ -93,10 +94,10 @@ namespace WPF_RPG_Form
         }
         public void AddHeroe(string name, string type, int hp, int mana, string skill, string weapon)
         {
-            
 
+            //exec dbo.InsertHeroe n,t,5,5,s,w,null
             string connetionString = @"Data Source=DESKTOP-HUCK62B;Initial Catalog=HeroeData;User ID=sa;Password=kacper1";
-            string query = $"EXECUTE InsertHeroe {name}, {type}, {hp}, {mana}, {skill}, {weapon}, NULL";
+            string query = $"EXECUTE dbo.InsertHeroe {name}, {type}, {hp}, {mana}, {skill}, {weapon}, NULL";
 
             SqlConnection connection = new SqlConnection(connetionString);
             SqlCommand cnn = new SqlCommand(query, connection);

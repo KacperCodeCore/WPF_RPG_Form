@@ -13,7 +13,7 @@ namespace WPF_RPG_Form
 
     public partial class MainWindow : Window
     {
-        DataBase dataBase = new DataBase();
+         DataBase dataBase = new DataBase();
         public MainWindow()
         {
             InitializeComponent();
@@ -50,8 +50,8 @@ namespace WPF_RPG_Form
             widow.ShowDialog();
             if (widow.IsOkPressed == "add")
             {
-                dataBase.AddHeroe(heroe.name, heroe.type, heroe.hp, heroe.mana, heroe.skill, heroe.weapon);
-                dataBase.ConectHeroe();
+                //dataBase.AddHeroe(heroe.name, heroe.type, heroe.hp, heroe.mana, heroe.skill, heroe.weapon);
+                //dataBase.ConectHeroe();
             }
         }
         private void Button_Edit(object sender, RoutedEventArgs e)
