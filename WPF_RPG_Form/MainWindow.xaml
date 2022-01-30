@@ -40,7 +40,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <DataGrid Grid.Row="0" x:Name="DG"/>
+            <DataGrid Grid.Row="0" x:Name="DG" SelectionChanged="DG_SelectionChanged"/>
             <!--DataGRid!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1-->
 
         </Grid>

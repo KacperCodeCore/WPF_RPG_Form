@@ -50,8 +50,11 @@ namespace WPF_RPG_Form
             widow.ShowDialog();
             if (widow.IsOkPressed == "add")
             {
-                //dataBase.AddHeroe(heroe.name, heroe.type, heroe.hp, heroe.mana, heroe.skill, heroe.weapon);
-                //dataBase.ConectHeroe();
+                dataBase.AddHeroe(heroe.name, heroe.type, heroe.hp, heroe.mana, heroe.skill, heroe.weapon);
+                Heroe.ListoOfHeroes.Clear();
+                //!!!zamiast usówać wszystko można by dodać tylko 1 row i zaciągnąć id
+                dataBase.ConectHeroe();
+                DG.Items.Refresh();
             }
         }
         private void Button_Edit(object sender, RoutedEventArgs e)
@@ -65,12 +68,15 @@ namespace WPF_RPG_Form
                 if (window.IsOkPressed == "add")
                 {
                     int index = Heroe.ListoOfHeroes.IndexOf(DG.SelectedItem as Heroe);
+                    dataBase.UpdateHeroe(Heroe.id, Heroe.name, Heroe.type, Heroe.hp, Heroe.mana, Heroe.skill, Heroe.weapon);
                     Heroe.ListoOfHeroes[index] = Heroe;
                     DG.Items.Refresh();
                 }
                 else if (window.IsOkPressed == "delete")
                 {
                     int index = Heroe.ListoOfHeroes.IndexOf(DG.SelectedItem as Heroe);
+                    dataBase.DeleteHeroe(Heroe.id);
+                    //!!!tu powinno się przenosić do innej bazy zamiast usówać
                     Heroe.ListoOfHeroes.RemoveAt(index);
                     DG.Items.Refresh();
                 }
@@ -84,5 +90,9 @@ namespace WPF_RPG_Form
             Seriazation.SerializeToXml<List<Heroe>>(Heroe.ListoOfHeroes, $"{Environment.CurrentDirectory}\\ListOfHeroes.xml");
         }
 
+        private void DG_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
