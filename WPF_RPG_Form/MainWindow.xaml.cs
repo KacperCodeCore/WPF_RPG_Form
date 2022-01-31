@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Data;
 using System.IO;
 
+
 namespace WPF_RPG_Form
 {
 
@@ -86,7 +87,10 @@ namespace WPF_RPG_Form
         }
         private void Button_Fight(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("fight");
+            var window = new HeroeFight();
+            //var Heroe = new Heroe((Heroe)DG.SelectedItem);
+            //window.DataContext = Heroe;
+            window.ShowDialog();
         }
         private void Window_Closing(object sender, CancelEventArgs e)
         {
@@ -95,7 +99,6 @@ namespace WPF_RPG_Form
 
         private void DG_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
         }
 
         
