@@ -84,7 +84,10 @@ namespace WPF_RPG_Form
             }
 
         }
-
+        private void Button_Fight(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("fight");
+        }
         private void Window_Closing(object sender, CancelEventArgs e)
         {
             Seriazation.SerializeToXml<List<Heroe>>(Heroe.ListoOfHeroes, $"{Environment.CurrentDirectory}\\ListOfHeroes.xml");
@@ -94,5 +97,7 @@ namespace WPF_RPG_Form
         {
 
         }
+
+        
     }
 }
