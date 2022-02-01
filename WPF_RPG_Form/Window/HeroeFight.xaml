@@ -1,0 +1,30 @@
+﻿<Window x:Class="WPF_RPG_Form.HeroeFight"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:P_Lista_3_formularz"
+        mc:Ignorable="d"
+        Title="HeroeFight" Height="800" Width="700">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        <Canvas x:Name="myCanvas" Grid.Row="0" Grid.Column="0" Background="LightBlue" Focusable="True" KeyDown="KeyIsDown" KeyUp="KeyIsUp">
+
+            <Rectangle Name="Player" Height="50px" Width="50px" Fill="Red" Canvas.Left="20" Canvas.Top="50"/>
+            <Rectangle Name="Box" Height="50px" Width="50px" Fill="Green" Canvas.Left="384" Canvas.Top="208"/>
+
+
+
+        </Canvas>
+
+        <Grid x:Name="stats" Grid.Row="1" Grid.Column="0" Background="AliceBlue">
+
+        </Grid>
+    </Grid>
+</Window>
