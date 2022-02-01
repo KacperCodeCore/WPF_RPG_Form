@@ -18,11 +18,12 @@ namespace WPF_RPG_Form
         public int hp { get; set; }
         public int mana { get; set; }
         public string skill { get; set; }
+        public string skill2 { get; set; }
         public string weapon { get; set; }
         //public Image image { get; set; }          
 
         public Heroe(){}
-        public Heroe(int id, string name, string type, int hp, int mana, string skill, string weapon)
+        public Heroe(int id, string name, string type, int hp, int mana, string skill, string skill2, string weapon)
         {
             this.id = id;
             this.name = name;
@@ -30,6 +31,7 @@ namespace WPF_RPG_Form
             this.hp = hp;
             this.mana = mana;
             this.skill = skill;
+            this.skill2 = skill2;
             this.weapon = weapon;
         }
         public Heroe(Heroe heroe)
@@ -40,6 +42,7 @@ namespace WPF_RPG_Form
             this.hp = heroe.hp;
             this.mana = heroe.mana;
             this.skill = heroe.skill;
+            this.skill2 = heroe.skill2;
             this.weapon = heroe.weapon;
         }
     }

@@ -1,0 +1,17 @@
+-bindowanie
+-msql
+-reporging services
+	conajmniej 1 raport
+-procedury składowane
+   skrypty lepiej
+-github
+
+
+
+-treigery
+-widoki
+
+
+
+
+insert into

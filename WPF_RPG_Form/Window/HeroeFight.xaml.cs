@@ -35,24 +35,67 @@ namespace WPF_RPG_Form
             gameTimer.Start();
         }
 
-        private void myCanvas_KeyUp(object sender, KeyEventArgs e)
-        {
-
-        }
 
         private void GameTimeEvent(object sender, EventArgs e)
         {
-            
+            if (goLeft == true && Canvas.GetLeft(player) > 5)
+            {
+                Canvas.SetLeft(player, Canvas.GetLeft(player) - playerSpeed);
+            }
+            if (goRight == true && Canvas.GetLeft(player) + (player.Width + 20) < Application.Current.MainWindow.Width)
+            {
+                Canvas.SetLeft(player, Canvas.GetLeft(player) + playerSpeed);
+            }
+            //if (goUp == true && Canvas.GetTop(player) > 5)
+            //{
+            //    Canvas.SetTop(player, Canvas.GetTop(player) - playerSpeed);
+            //}
+            //if (goDown == true && Canvas.GetTop(player) + (player.Height + 30) < Application.Current.MainWindow.Height)
+            //{
+            //    Canvas.SetBottom(player, Canvas.GetBottom(player) + playerSpeed);
+            //}
         }
 
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
-
+            if (e.Key == Key.W)
+            {
+                goUp = true;
+            }
+            if (e.Key == Key.S)
+            {
+                goDown = true;
+            }
+            if (e.Key == Key.A)
+            {
+                goLeft = true;
+            }
+            if (e.Key == Key.D)
+            {
+                goRight = true;
+            }
+            
         }
 
         private void KeyIsUp(object sender, KeyEventArgs e)
         {
-
+            if (e.Key == Key.W)
+            {
+                goUp = false;
+            }
+            if (e.Key == Key.S)
+            {
+                goDown = false;
+            }
+            if (e.Key == Key.A)
+            {
+                goLeft = false;
+            }
+            if (e.Key == Key.D)
+            {
+                goRight = false;
+            }
+            
         }
     }
 }

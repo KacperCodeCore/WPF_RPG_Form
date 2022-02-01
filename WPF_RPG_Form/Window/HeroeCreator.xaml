@@ -55,6 +55,7 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
@@ -63,13 +64,15 @@
             <Label Grid.Row="3" Grid.Column="1" Content="HP"/>
             <Label Grid.Row="4" Grid.Column="1" Content="Mana"/>
             <Label Grid.Row="5" Grid.Column="1" Content="Skill"/>
-            <Label Grid.Row="6" Grid.Column="1" Content="Weapon"/>
-            <TextBox x:Name="nameName" Grid.Row="1" Grid.Column="2" Text="{Binding name, Mode=TwoWay}"/>
-            <TextBox x:Name="typeName" Grid.Row="2" Grid.Column="2" Text="{Binding type, Mode=TwoWay}"/>
-            <TextBox x:Name="hpName" Grid.Row="3" Grid.Column="2" Text="{Binding hp, Mode=TwoWay}"/>
-            <TextBox x:Name="ageName" Grid.Row="4" Grid.Column="2" Text="{Binding mana, Mode=TwoWay}"/>
-            <TextBox x:Name="birthdayName" Grid.Row="5" Grid.Column="2" Text="{Binding skill, Mode=TwoWay}"/>
-            <TextBox x:Name="genderName" Grid.Row="6" Grid.Column="2" Text="{Binding weapon, Mode=TwoWay}"/>
+            <Label Grid.Row="6" Grid.Column="1" Content="Skill2"/>
+            <Label Grid.Row="7" Grid.Column="1" Content="Weapon"/>
+            <TextBox x:Name="Name" Grid.Row="1" Grid.Column="2" Text="{Binding name, Mode=TwoWay}"/>
+            <TextBox x:Name="Type" Grid.Row="2" Grid.Column="2" Text="{Binding type, Mode=TwoWay}"/>
+            <TextBox x:Name="Hp" Grid.Row="3" Grid.Column="2" Text="{Binding hp, Mode=TwoWay}"/>
+            <TextBox x:Name="Mana" Grid.Row="4" Grid.Column="2" Text="{Binding mana, Mode=TwoWay}"/>
+            <TextBox x:Name="Skill" Grid.Row="5" Grid.Column="2" Text="{Binding skill, Mode=TwoWay}"/>
+            <TextBox x:Name="Skill2" Grid.Row="6" Grid.Column="2" Text="{Binding skill2, Mode=TwoWay}"/>
+            <TextBox x:Name="Picture" Grid.Row="7" Grid.Column="2" Text="{Binding weapon, Mode=TwoWay}"/>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="1">
             <Grid.RowDefinitions>
