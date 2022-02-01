@@ -15,6 +15,7 @@ namespace WPF_RPG_Form
     public partial class MainWindow : Window
     {
          DataBase dataBase = new DataBase();
+         DataBase dataBase1 = new DataBase();
         public MainWindow()
         {
             InitializeComponent();
@@ -101,6 +102,10 @@ namespace WPF_RPG_Form
         {
         }
 
-        
+        private void Button_Removed(object sender, RoutedEventArgs e)
+        {
+            var window = new RemovedHeroe();
+            window.ShowDialog();
+        }
     }
 }

@@ -58,6 +58,10 @@
     <Compile Include="Class\DataBase.cs" />
     <Compile Include="Class\HeroeType.cs" />
     <Compile Include="Class\Serialization.cs" />
+    <Page Include="Window\RemovedHeroe.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Window\HeroeFight.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -69,6 +73,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Window\RemovedHeroe.xaml.cs">
+      <DependentUpon>RemovedHeroe.xaml</DependentUpon>
     </Compile>
     <Compile Include="Window\HeroeFight.xaml.cs">
       <DependentUpon>HeroeFight.xaml</DependentUpon>

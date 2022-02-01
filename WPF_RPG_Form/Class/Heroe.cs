@@ -12,6 +12,7 @@ namespace WPF_RPG_Form
     public class Heroe
     {
         public static List<Heroe> ListoOfHeroes = new List<Heroe>();
+        public static List<Heroe> ListoOfRemovedHeroes = new List<Heroe>();
         public int id { get; set; }
         public string name { get; set; }
         public string type { get; set; }

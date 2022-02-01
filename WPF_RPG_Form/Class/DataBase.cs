@@ -73,9 +73,34 @@ namespace WPF_RPG_Form
             cmd.Dispose();
             con.Close();
         }
+        public void ConectRemovedHeroe()
+        {
+            SqlConnection con = new SqlConnection(@"Data Source=CODEBAKERTY;Initial Catalog=heroedb;Integrated Security=True");
+            SqlCommand cmd = new SqlCommand("selectRemovedheroe", con);
+            con.Open();
 
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                var newHeroe = new Heroe(
+                    Convert.ToInt32(reader.GetValue(0)),
+                    reader.GetValue(1).ToString(),
+                    reader.GetValue(2).ToString(),
+                    Convert.ToInt32(reader.GetValue(3)),
+                    Convert.ToInt32(reader.GetValue(4)),
+                    reader.GetValue(5).ToString(),
+                    reader.GetValue(6).ToString(),
+                    reader.GetValue(7).ToString());
+                Heroe.ListoOfRemovedHeroes.Add(newHeroe);
+            }
+
+            reader.Close();
+            cmd.Dispose();
+            con.Close();
+        }
 
     }
+
 
     
 }
