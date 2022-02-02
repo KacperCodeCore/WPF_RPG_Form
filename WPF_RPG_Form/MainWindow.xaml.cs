@@ -36,9 +36,9 @@ namespace WPF_RPG_Form
             widow.ShowDialog();
             if (widow.IsOkPressed == "add")
             {
-                dataBase.AddHeroe(heroe.name, heroe.type, heroe.hp, heroe.mana, heroe.skill, heroe.skill2, heroe.weapon);
+                dataBase.AddHeroe( heroe.name, heroe.type, heroe.hp, heroe.mana, heroe.skill, heroe.skill2, heroe.weapon);
                 Heroe.ListoOfHeroes.Clear();
-                //!!!zamiast usówać wszystko można by dodać tylko 1 row i zaciągnąć id
+                //!!!zamiast usówać wszystko można by dodać tylko zaciągnąć id i pobrać 1 row
                 dataBase.ConectHeroe();
                 DG.Items.Refresh();
             }

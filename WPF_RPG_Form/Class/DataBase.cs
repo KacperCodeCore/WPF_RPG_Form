@@ -48,7 +48,7 @@ namespace WPF_RPG_Form
         public void UpdateHeroe(int id, string name, string type, int hp, int mana, string skill, string skill2, string weapon)
         {
             SqlConnection con = new SqlConnection(@"Data Source=CODEBAKERTY;Initial Catalog=heroedb;Integrated Security=True");
-            SqlCommand cmd = new SqlCommand($"UpdateHeroe {id},{name},{type},{hp},{mana},{skill},{skill2},{weapon},p", con);
+            SqlCommand cmd = new SqlCommand($"UpdateHeroe '{id}','{name}','{type}',{hp},{mana},'{skill}','{skill2}','{weapon}',p", con);
             con.Open();
             cmd.ExecuteNonQuery();
             cmd.Dispose();
@@ -67,7 +67,7 @@ namespace WPF_RPG_Form
         public void AddHeroe(string name, string type, int hp, int mana, string skill, string skill2, string weapon)
         {
             SqlConnection con = new SqlConnection(@"Data Source=CODEBAKERTY;Initial Catalog=heroedb;Integrated Security=True");
-            SqlCommand cmd = new SqlCommand($"InsertHeroe {name}, {type}, {hp}, {mana}, {skill}, {skill2}, {weapon}, p", con);
+            SqlCommand cmd = new SqlCommand($"InsertHeroe '{name}', '{type}', {hp}, {mana}, '{skill}', '{skill2}', '{weapon}', 'p'", con);
             con.Open();
             cmd.ExecuteNonQuery();
             cmd.Dispose();
@@ -102,7 +102,7 @@ namespace WPF_RPG_Form
         public void AddDeletedHeroe(string name, string type, int hp, int mana, string skill, string skill2, string weapon)
         {
             SqlConnection con = new SqlConnection(@"Data Source=CODEBAKERTY;Initial Catalog=heroedb;Integrated Security=True");
-            SqlCommand cmd = new SqlCommand($"InsertRemovedHeroe {name}, {type}, {hp}, {mana}, {skill}, {skill2}, {weapon}, p", con);
+            SqlCommand cmd = new SqlCommand($"InsertRemovedHeroe '{name}', '{type}', {hp}, {mana}, '{skill}', '{skill2}', '{weapon}', p", con);
             con.Open();
             cmd.ExecuteNonQuery();
             cmd.Dispose();
