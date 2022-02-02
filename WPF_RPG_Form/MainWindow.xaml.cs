@@ -14,20 +14,13 @@ namespace WPF_RPG_Form
 
     public partial class MainWindow : Window
     {
-         DataBase dataBase = new DataBase();
-         DataBase dataBase1 = new DataBase();
+        
+        DataBase dataBase = new DataBase();
+        DataBase dataBase1 = new DataBase();
         public MainWindow()
         {
+
             InitializeComponent();
-            //bool fileExists = File.Exists($"{Environment.CurrentDirectory}\\ListOfHeroes.xml");
-            //if (!fileExists)
-            //{
-            //    Heroe.ListoOfHeroes = new List<Heroe>();
-            //}
-            //else
-            //{
-            //    Heroe.ListoOfHeroes = Seriazation.DeserializeToObject<List<Heroe>>($"{Environment.CurrentDirectory}\\ListOfHeroes.xml");
-            //}
 
 
             dataBase.ConectHeroe();
@@ -37,15 +30,6 @@ namespace WPF_RPG_Form
 
         private void Button_Add(object sender, RoutedEventArgs e)
         {
-            //var widow = new HeroeCreator();
-            //var heroe = new Heroe();
-            //widow.DataContext = heroe;
-            //widow.ShowDialog();   
-            //if (widow.IsOkPressed == "add")
-            //{
-            //    Heroe.ListoOfHeroes.Add(heroe);
-            //    DG.Items.Refresh(); //??? nie potrzeba, tylko testowo
-            //}
             var widow = new HeroeCreator();
             var heroe = new Heroe();
             widow.DataContext = heroe;
@@ -77,8 +61,9 @@ namespace WPF_RPG_Form
                 else if (window.IsOkPressed == "delete")
                 {
                     int index = Heroe.ListoOfHeroes.IndexOf(DG.SelectedItem as Heroe);
+                    Heroe.ListoOfRemovedHeroes.Add(Heroe.ListoOfHeroes[index]);
+                    dataBase.AddDeletedHeroe(Heroe.name, Heroe.type, Heroe.hp, Heroe.mana, Heroe.skill, Heroe.skill2, Heroe.weapon);
                     dataBase.DeleteHeroe(Heroe.id);
-                    //!!!tu powinno się przenosić do innej bazy zamiast usówać
                     Heroe.ListoOfHeroes.RemoveAt(index);
                     DG.Items.Refresh();
                 }
@@ -106,6 +91,12 @@ namespace WPF_RPG_Form
         {
             var window = new RemovedHeroe();
             window.ShowDialog();
+            RefreshItemsDG();
         }
+        public void RefreshItemsDG()
+        {
+            DG.Items.Refresh();
+        }
+
     }
 }

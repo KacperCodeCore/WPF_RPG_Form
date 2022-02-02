@@ -21,6 +21,7 @@ namespace WPF_RPG_Form
         {
             InitializeComponent();
 
+            Heroe.ListoOfRemovedHeroes.Clear();
             dataBase1.ConectRemovedHeroe();
 
             DG1.ItemsSource = Heroe.ListoOfRemovedHeroes;
@@ -28,7 +29,11 @@ namespace WPF_RPG_Form
 
         private void Button_Restore(object sender, RoutedEventArgs e)
         {
-
+            int index = Heroe.ListoOfRemovedHeroes.IndexOf(DG1.SelectedItem as Heroe);
+            dataBase1.MoveFromRemovedToHeroe(Heroe.ListoOfRemovedHeroes[index].id);
+            Heroe.ListoOfRemovedHeroes.RemoveAt(index);
+            DG1.Items.Refresh();
+            //((MainWindow)this.Owner).RefreshItemsDG();//???
         }
 
         private void Button_Delete(object sender, RoutedEventArgs e)

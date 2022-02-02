@@ -43,6 +43,7 @@
             <DataGrid Grid.Row="0" x:Name="DG" SelectionChanged="DG_SelectionChanged"/>
             <!--DataGRid!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1-->
 
+
         </Grid>
         <Grid Grid.Row="1" Grid.Column="2">
             <Grid.RowDefinitions>

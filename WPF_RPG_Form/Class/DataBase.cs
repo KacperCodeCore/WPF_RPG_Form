@@ -99,6 +99,25 @@ namespace WPF_RPG_Form
             con.Close();
         }
 
+        public void AddDeletedHeroe(string name, string type, int hp, int mana, string skill, string skill2, string weapon)
+        {
+            SqlConnection con = new SqlConnection(@"Data Source=CODEBAKERTY;Initial Catalog=heroedb;Integrated Security=True");
+            SqlCommand cmd = new SqlCommand($"InsertRemovedHeroe {name}, {type}, {hp}, {mana}, {skill}, {skill2}, {weapon}, p", con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            con.Close();
+        }
+        public void MoveFromRemovedToHeroe(int id)
+        {
+            SqlConnection con = new SqlConnection(@"Data Source=CODEBAKERTY;Initial Catalog=heroedb;Integrated Security=True");
+            SqlCommand cmd = new SqlCommand($"MoveFromRemovedToHeroe {id}", con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            con.Close();
+        }
+
     }
 
 

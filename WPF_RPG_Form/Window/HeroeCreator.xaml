@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:P_Lista_3_formularz"
         mc:Ignorable="d"
-        Title="PersonCreator" Height="350" Width="500">
+        Title="PersonCreator" Height="340" Width="500">
     <Window.Resources>
         <Style TargetType="Label">
             <Setter Property="FontSize" Value="20"/>
@@ -56,6 +56,7 @@
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
@@ -67,12 +68,41 @@
             <Label Grid.Row="6" Grid.Column="1" Content="Skill2"/>
             <Label Grid.Row="7" Grid.Column="1" Content="Weapon"/>
             <TextBox x:Name="Name" Grid.Row="1" Grid.Column="2" Text="{Binding name, Mode=TwoWay}"/>
-            <TextBox x:Name="Type" Grid.Row="2" Grid.Column="2" Text="{Binding type, Mode=TwoWay}"/>
+            <!--<TextBox x:Name="Type" Grid.Row="2" Grid.Column="2" Text="{Binding type, Mode=TwoWay}"/>-->
+            <ComboBox x:Name="Type" Grid.Row="2" Grid.Column="2" Text="{Binding type, Mode=TwoWay}">
+                <ComboBoxItem>Paladin+1000HP</ComboBoxItem>
+                <ComboBoxItem>Mage+1000Mana</ComboBoxItem>
+                <ComboBoxItem>Assasin+50Damage</ComboBoxItem>
+            </ComboBox>
             <TextBox x:Name="Hp" Grid.Row="3" Grid.Column="2" Text="{Binding hp, Mode=TwoWay}"/>
             <TextBox x:Name="Mana" Grid.Row="4" Grid.Column="2" Text="{Binding mana, Mode=TwoWay}"/>
-            <TextBox x:Name="Skill" Grid.Row="5" Grid.Column="2" Text="{Binding skill, Mode=TwoWay}"/>
-            <TextBox x:Name="Skill2" Grid.Row="6" Grid.Column="2" Text="{Binding skill2, Mode=TwoWay}"/>
-            <TextBox x:Name="Picture" Grid.Row="7" Grid.Column="2" Text="{Binding weapon, Mode=TwoWay}"/>
+            <!--<TextBox x:Name="Skill" Grid.Row="5" Grid.Column="2" Text="{Binding skill, Mode=TwoWay}"/>-->
+            <ComboBox x:Name="Skill" Grid.Row="5" Grid.Column="2" Text="{Binding skill, Mode=TwoWay}">
+                <ComboBoxItem>Shield</ComboBoxItem>
+                <ComboBoxItem>Fire Ball</ComboBoxItem>
+                <ComboBoxItem>Strike</ComboBoxItem>
+                <ComboBoxItem>invisibility</ComboBoxItem>
+                <ComboBoxItem>Charge</ComboBoxItem>
+                <ComboBoxItem>Teleport</ComboBoxItem>
+                <ComboBoxItem>Laser</ComboBoxItem>
+            </ComboBox>
+            <!--<TextBox x:Name="Skill2" Grid.Row="6" Grid.Column="2" Text="{Binding skill2, Mode=TwoWay}"/>-->
+            <ComboBox x:Name="Skill2" Grid.Row="6" Grid.Column="2" Text="{Binding skill2, Mode=TwoWay}">
+                <ComboBoxItem>Shield</ComboBoxItem>
+                <ComboBoxItem>Fire Ball</ComboBoxItem>
+                <ComboBoxItem>Strike</ComboBoxItem>
+                <ComboBoxItem>invisibility</ComboBoxItem>
+                <ComboBoxItem>Charge</ComboBoxItem>
+                <ComboBoxItem>Teleport</ComboBoxItem>
+                <ComboBoxItem>Laser</ComboBoxItem>
+            </ComboBox>
+            <!--<TextBox x:Name="Picture" Grid.Row="7" Grid.Column="2" Text="{Binding weapon, Mode=TwoWay}"/>-->
+            <ComboBox x:Name="Picture" Grid.Row="7" Grid.Column="2" Text="{Binding weapon, Mode=TwoWay}">
+                <ComboBoxItem>Sword</ComboBoxItem>
+                <ComboBoxItem>Fire Staff</ComboBoxItem>
+                <ComboBoxItem>Dagger</ComboBoxItem>
+                <ComboBoxItem>Laser staff</ComboBoxItem>
+            </ComboBox>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="1">
             <Grid.RowDefinitions>
