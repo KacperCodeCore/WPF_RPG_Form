@@ -58,16 +58,16 @@
         </Grid>
         <Grid Grid.Row="1" Grid.Column="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Button Click="Button_Add" Grid.Row="0" Content="Add Heroe" Grid.ColumnSpan="4"/>
-            <Button Click="Button_Edit" Grid.Row="1" Content="Edit" Height="30" VerticalAlignment="Top"/>
-            <Button Click="Button_Removed" Grid.Row="2" Content="Removed" Height="30" VerticalAlignment="Top"/>
-            <Button Click="Button_Fight"  Grid.Row="3" Content="Fight" Height="30" VerticalAlignment="Top"/>
+            <Button Click="Button_Edit" Grid.Row="1" Content="Edit" Height="70" VerticalAlignment="Top"/>
+            <Button Click="Button_Removed" Grid.Row="2" Content="Removed" Height="70" VerticalAlignment="Top"/>
+            <Button Click="Button_Fight"  Grid.Row="3" Content="Fight" Height="70" VerticalAlignment="Top"/>
   
         </Grid>
 

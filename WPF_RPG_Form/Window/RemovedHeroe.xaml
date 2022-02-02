@@ -54,12 +54,12 @@
         </Grid>
         <Grid Grid.Row="1" Grid.Column="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="30"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Button Click="Button_Restore" Grid.Row="0" Content="Restore" Grid.ColumnSpan="4"/>
-            <Button Click="Button_Delete" Grid.Row="1" Content="Delete" Height="30" VerticalAlignment="Top"/>
+            <Button Click="Button_Delete" Grid.Row="1" Content="Delete"  Height="70" VerticalAlignment="Top"/>
 
 
         </Grid>

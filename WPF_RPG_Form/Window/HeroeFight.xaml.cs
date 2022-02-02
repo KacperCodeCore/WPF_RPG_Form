@@ -20,7 +20,6 @@ namespace WPF_RPG_Form
     /// </summary>
     public partial class HeroeFight : Window
     {
-        bool goLeft, goRight, goUp, goDown;
         int playerSpeed = 8;
         int speed = 12;
 
@@ -30,9 +29,6 @@ namespace WPF_RPG_Form
             InitializeComponent();
 
             myCanvas.Focus();
-            //gameTimer.Tick += GameTimeEvent;
-            //gameTimer.Interval = TimeSpan.FromMilliseconds(20);
-            //gameTimer.Start();
         }
 
         public int x
@@ -40,69 +36,55 @@ namespace WPF_RPG_Form
             get { return (int)GetValue(xProperty); }
             set { SetValue(xProperty, value); }
         }
+        public int y
+        {
+            get { return (int)GetValue(yProperty); }
+            set { SetValue(yProperty, value); }
+        }
 
         public static readonly DependencyProperty xProperty = DependencyProperty.Register("x", typeof(int), typeof(HeroeFight), new PropertyMetadata(0));
-
-        private void GameTimeEvent(object sender, EventArgs e)
-        {
-            if (goLeft == true && Canvas.GetLeft(player) > 5)
-            {
-                Canvas.SetLeft(player, Canvas.GetLeft(player) - playerSpeed);
-            }
-            if (goRight == true && Canvas.GetLeft(player) + (player.Width + 20) < Application.Current.MainWindow.Width)
-            {
-                Canvas.SetLeft(player, Canvas.GetLeft(player) + playerSpeed);
-            }
-            //if (goUp == true && Canvas.GetTop(player) > 5)
-            //{
-            //    Canvas.SetTop(player, Canvas.GetTop(player) - playerSpeed);
-            //}
-            //if (goDown == true && Canvas.GetTop(player) + (player.Height + 30) < Application.Current.MainWindow.Height)
-            //{
-            //    Canvas.SetBottom(player, Canvas.GetBottom(player) + playerSpeed);
-            //}
-        }
+        public static readonly DependencyProperty yProperty = DependencyProperty.Register("y", typeof(int), typeof(HeroeFight), new PropertyMetadata(0));
 
         private void KeyIsDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.W)
             {
-                goUp = true;
+                y -= playerSpeed;
             }
             if (e.Key == Key.S)
             {
-                goDown = true;
+                y += playerSpeed;
             }
             if (e.Key == Key.A)
             {
-                x -= 10;
+                x -= playerSpeed;
             }
             if (e.Key == Key.D)
             {
-               x+=10;
+                x += playerSpeed;
             }
             
         }
 
-        private void KeyIsUp(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.W)
-            {
-                goUp = false;
-            }
-            if (e.Key == Key.S)
-            {
-                goDown = false;
-            }
-            if (e.Key == Key.A)
-            {
-                goLeft = false;
-            }
-            if (e.Key == Key.D)
-            {
-                goRight = false;
-            }
+        //private void KeyIsUp(object sender, KeyEventArgs e)
+        //{
+        //    if (e.Key == Key.W)
+        //    {
+        //        goUp = false;
+        //    }
+        //    if (e.Key == Key.S)
+        //    {
+        //        goDown = false;
+        //    }
+        //    if (e.Key == Key.A)
+        //    {
+        //        goLeft = false;
+        //    }
+        //    if (e.Key == Key.D)
+        //    {
+        //        goRight = false;
+        //    }
             
-        }
+        //}
     }
 }
