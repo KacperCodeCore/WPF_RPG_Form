@@ -30,11 +30,18 @@ namespace WPF_RPG_Form
             InitializeComponent();
 
             myCanvas.Focus();
-            gameTimer.Tick += GameTimeEvent;
-            gameTimer.Interval = TimeSpan.FromMilliseconds(20);
-            gameTimer.Start();
+            //gameTimer.Tick += GameTimeEvent;
+            //gameTimer.Interval = TimeSpan.FromMilliseconds(20);
+            //gameTimer.Start();
         }
 
+        public int x
+        {
+            get { return (int)GetValue(xProperty); }
+            set { SetValue(xProperty, value); }
+        }
+
+        public static readonly DependencyProperty xProperty = DependencyProperty.Register("x", typeof(int), typeof(HeroeFight), new PropertyMetadata(0));
 
         private void GameTimeEvent(object sender, EventArgs e)
         {
@@ -68,11 +75,11 @@ namespace WPF_RPG_Form
             }
             if (e.Key == Key.A)
             {
-                goLeft = true;
+                x -= 10;
             }
             if (e.Key == Key.D)
             {
-                goRight = true;
+               x+=10;
             }
             
         }

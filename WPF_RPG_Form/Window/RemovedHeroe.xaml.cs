@@ -33,12 +33,14 @@ namespace WPF_RPG_Form
             dataBase1.MoveFromRemovedToHeroe(Heroe.ListoOfRemovedHeroes[index].id);
             Heroe.ListoOfRemovedHeroes.RemoveAt(index);
             DG1.Items.Refresh();
-            //((MainWindow)this.Owner).RefreshItemsDG();//???
         }
 
         private void Button_Delete(object sender, RoutedEventArgs e)
         {
-
+            int index = Heroe.ListoOfRemovedHeroes.IndexOf(DG1.SelectedItem as Heroe);
+            dataBase1.DeleteRemovedHeroe(Heroe.ListoOfRemovedHeroes[index].id);
+            Heroe.ListoOfRemovedHeroes.RemoveAt(index);
+            DG1.Items.Refresh();
         }
 
         private void DG1_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -30,6 +30,13 @@
             <Setter Property="BorderBrush" Value="white"/>
             <Setter Property="BorderThickness" Value="1"/>
         </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="auto"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Background" Value="#aaaaaa"/>
+            <Setter Property="BorderBrush" Value="white"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -94,6 +101,7 @@
                 <ComboBoxItem>invisibility</ComboBoxItem>
                 <ComboBoxItem>Charge</ComboBoxItem>
                 <ComboBoxItem>Teleport</ComboBoxItem>
+                <ComboBoxItem>TeleportBack</ComboBoxItem>
                 <ComboBoxItem>Laser</ComboBoxItem>
             </ComboBox>
             <!--<TextBox x:Name="Picture" Grid.Row="7" Grid.Column="2" Text="{Binding weapon, Mode=TwoWay}"/>-->

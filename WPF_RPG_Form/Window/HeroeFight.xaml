@@ -5,11 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:P_Lista_3_formularz"
         mc:Ignorable="d"
+        x:Name="window"
         Title="HeroeFight" Width="800" Height="600">
 
     <Canvas x:Name="myCanvas" Background="LightBlue" Focusable="True" KeyDown="KeyIsDown" KeyUp="KeyIsUp">
 
-        <Rectangle Name="player" Height="50px" Width="50px" Fill="Red" Canvas.Left="127" Canvas.Top="75"/>
+        <Rectangle Name="player" Height="50px" Width="50px" Fill="Red" Canvas.Left="{Binding ElementName=window, Path=x}" Canvas.Top="75"/>
         <Rectangle Name="Box" Height="50px" Width="50px" Fill="Green" Canvas.Left="384" Canvas.Top="208"/>
 
 

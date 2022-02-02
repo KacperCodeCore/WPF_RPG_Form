@@ -23,7 +23,16 @@ namespace WPF_RPG_Form
         public string weapon { get; set; }
         //public Image image { get; set; }          
 
-        public Heroe(){}
+        public Heroe()
+        {
+            this.name = "HeroeName";
+            this.type = "Paladin+1000HP";
+            this.hp = 1000;
+            this.mana = 1000;
+            this.skill = "Shield";
+            this.skill2 = "Strike";
+            this.weapon = "Sword";
+        }
         public Heroe(int id, string name, string type, int hp, int mana, string skill, string skill2, string weapon)
         {
             this.id = id;

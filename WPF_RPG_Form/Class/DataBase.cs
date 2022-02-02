@@ -117,6 +117,16 @@ namespace WPF_RPG_Form
             cmd.Dispose();
             con.Close();
         }
+        public void DeleteRemovedHeroe(int id)
+        {
+            SqlConnection con = new SqlConnection(@"Data Source=CODEBAKERTY;Initial Catalog=heroedb;Integrated Security=True");
+            SqlCommand cmd = new SqlCommand($"DeleteRemovedHeroe {id}", con);
+            con.Open();
+            cmd.ExecuteNonQuery();
+            cmd.Dispose();
+            con.Close();
+        }
+        
 
     }
 

@@ -91,6 +91,8 @@ namespace WPF_RPG_Form
         {
             var window = new RemovedHeroe();
             window.ShowDialog();
+            Heroe.ListoOfHeroes.Clear();
+            dataBase.ConectHeroe();
             RefreshItemsDG();
         }
         public void RefreshItemsDG()
