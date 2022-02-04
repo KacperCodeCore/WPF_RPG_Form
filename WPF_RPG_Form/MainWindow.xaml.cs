@@ -100,5 +100,10 @@ namespace WPF_RPG_Form
             DG.Items.Refresh();
         }
 
+        private void Button_Report(object sender, RoutedEventArgs e)
+        {
+            var window = new HeroeReport();
+            window.ShowDialog();
+        }
     }
 }

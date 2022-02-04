@@ -58,10 +58,11 @@ namespace WPF_RPG_Form
         public void DeleteHeroe(int id)
         {
             SqlConnection con = new SqlConnection(@"Data Source=CODEBAKERTY;Initial Catalog=heroedb;Integrated Security=True");
-            SqlCommand cmd = new SqlCommand($"DeleteHeroe {id}", con);
+            //SqlCommand cmd = new SqlCommand($"DeleteHeroe {id}", con);
             con.Open();
-            cmd.ExecuteNonQuery();
-            cmd.Dispose();
+            //cmd.ExecuteNonQuery();
+            //cmd.Dispose();
+            MessageBox.Show("Dsd");
             con.Close();
         }
         public void AddHeroe(string name, string type, int hp, int mana, string skill, string skill2, string weapon)
