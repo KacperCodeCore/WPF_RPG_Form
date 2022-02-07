@@ -22,14 +22,31 @@ namespace WPF_RPG_Form
         public HeroeReport()
         {
             InitializeComponent();
-            this.Loaded += new RoutedEventHandler(HeroeReport_Load);
 
-        }
+            this.ctlReport.ReportLoaded += (sen, arg) =>
+            {
+                List<BoldReports.Windows.DataSourceCredentials> dataSourceCrdentials = new List<BoldReports.Windows.DataSourceCredentials>();
 
-        private void HeroeReport_Load(object sender, RoutedEventArgs e)
-        {
-            this.ReportViewer.ReportPath = System.IO.Path.Combine(Environment.CurrentDirectory, @"Resources/HeroeReport1.rdl");
-            this.ReportViewer.RefreshReport();
+                foreach (var dataSource in this.ctlReport.GetDataSources())
+                {
+                    BoldReports.Windows.DataSourceCredentials crdentials = new BoldReports.Windows.DataSourceCredentials();
+                    crdentials.Name = dataSource.Name;
+                    crdentials.UserId = null;
+                    crdentials.Password = null;
+                    crdentials.IntegratedSecurity = true;
+                    dataSourceCrdentials.Add(crdentials);
+                }
+
+                this.ctlReport.SetDataSourceCredentials(dataSourceCrdentials);
+            };
+            this.ctlReport.ReportServerUrl = "http://codebakerty/ReportServer";
+            this.ctlReport.ReportServerCredential = System.Net.CredentialCache.DefaultCredentials; 
+            this.ctlReport.ReportPath = "/WPF_RPG_Form_Report Server Project/HeroeReport1"; //The report path should be in the format of  "/folder name/report name"
+            this.ctlReport.RefreshReport();
+
         }
     }
 }
+
+
+
