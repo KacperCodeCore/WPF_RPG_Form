@@ -3,19 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:P_Lista_3_formularz"
+        xmlns:local="clr-namespace:WPF_RPG_Form"
         mc:Ignorable="d"
-        x:Name="window"
-        Title="HeroeFight" Width="800" Height="600">
+        Title="Space Battle Shooter Game MOO ICT" Height="615" Width="540">
+    <Canvas Name="MyCanvas" Focusable="True" Background="Black" KeyDown="OnKeyDown" KeyUp="OnKeyUp">
 
-    <Canvas x:Name="myCanvas" Background="LightBlue" Focusable="True" KeyDown="KeyIsDown" >
+        <Rectangle Name="player" Height="50" Width="60" Fill="Yellow" Canvas.Left="246" Canvas.Top="498" />
 
-        <Rectangle Name="player" Height="50px" Width="50px" Fill="Red" Canvas.Left="{Binding ElementName=window, Path=x}"
-                   Canvas.Top="{Binding ElementName=window, Path=y}"/>
-        
-        <Rectangle Name="Box" Height="50px" Width="50px" Fill="Green" Canvas.Left="384" Canvas.Top="208"/>
-
-
+        <Label Name="scoreText" Content="Score: 0" FontSize="18" FontWeight="Bold" Foreground="White" />
+        <Label Name="damageText" Content="Score: 0" FontSize="18" FontWeight="Bold" Foreground="White" Canvas.Left="395" />
 
     </Canvas>
 </Window>
