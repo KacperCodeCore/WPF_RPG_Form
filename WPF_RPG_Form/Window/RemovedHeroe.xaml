@@ -40,6 +40,7 @@
             <DataGrid Grid.Row="0" x:Name="DG1" SelectionChanged="DG1_SelectionChanged" AutoGenerateColumns="False"
                       CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeRows="False" IsReadOnly="True">
                 <DataGrid.Columns>
+                
                     <DataGridTextColumn Width="*" Header="Name" Binding="{Binding name}" />
                     <DataGridTextColumn Width="*" Header="Type" Binding="{Binding type}" />
                     <DataGridTextColumn Width="*" Header="Hp" Binding="{Binding hp}" />
@@ -47,6 +48,7 @@
                     <DataGridTextColumn Width="*" Header="Skill" Binding="{Binding skill}" />
                     <DataGridTextColumn Width="*" Header="Skill2" Binding="{Binding skill2}" />
                     <DataGridTextColumn Width="*" Header="Weapon" Binding="{Binding weapon}" />
+                    <DataGridTextColumn Width="30" Header="lvl" Binding="{Binding lvl}" />
                 </DataGrid.Columns>
             </DataGrid>
             <!--DataGRid!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1-->

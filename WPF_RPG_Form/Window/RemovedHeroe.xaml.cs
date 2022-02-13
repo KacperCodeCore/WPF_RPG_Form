@@ -32,8 +32,8 @@ namespace WPF_RPG_Form
             if (DG1.SelectedItem != null)
             {
                 int index = Heroe.ListoOfRemovedHeroes.IndexOf(DG1.SelectedItem as Heroe);
-                Heroe.ListoOfRemovedHeroes.RemoveAt(index);
                 dataBase1.MoveFromRemovedToHeroe(Heroe.ListoOfRemovedHeroes[index].id);
+                Heroe.ListoOfRemovedHeroes.RemoveAt(index);
                 DG1.Items.Refresh();
             }
 
@@ -44,8 +44,8 @@ namespace WPF_RPG_Form
             if (DG1.SelectedItem != null)
             {
                 int index = Heroe.ListoOfRemovedHeroes.IndexOf(DG1.SelectedItem as Heroe);
-                Heroe.ListoOfRemovedHeroes.RemoveAt(index);
                 dataBase1.DeleteRemovedHeroe(Heroe.ListoOfRemovedHeroes[index].id);
+                Heroe.ListoOfRemovedHeroes.RemoveAt(index);
                 DG1.Items.Refresh();
             }
         }

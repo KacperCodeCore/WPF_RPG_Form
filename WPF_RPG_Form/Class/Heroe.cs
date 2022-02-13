@@ -24,6 +24,7 @@ namespace WPF_RPG_Form
         public string skill { get; set; }
         public string skill2 { get; set; }
         public string weapon { get; set; }
+        public int lvl { get; set; }
 
         public Heroe()
         {
@@ -34,8 +35,9 @@ namespace WPF_RPG_Form
             this.skill = "FireBall";
             this.skill2 = "Teleport";
             this.weapon = "FireStaff";
+            this.lvl = 0;
         }
-        public Heroe(int id, string name, string type, int hp, int mana, string skill, string skill2, string weapon)
+        public Heroe(int id, string name, string type, int hp, int mana, string skill, string skill2, string weapon, int lvl)
         {
             this.id = id;
             this.name = name;
@@ -45,6 +47,8 @@ namespace WPF_RPG_Form
             this.skill = skill;
             this.skill2 = skill2;
             this.weapon = weapon;
+            this.lvl = lvl;
+
         }
         public Heroe(Heroe heroe)
         {
@@ -56,6 +60,7 @@ namespace WPF_RPG_Form
             this.skill = heroe.skill;
             this.skill2 = heroe.skill2;
             this.weapon = heroe.weapon;
+            this.lvl = heroe.lvl;
         }
     }
 }

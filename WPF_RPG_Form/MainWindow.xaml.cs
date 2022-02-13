@@ -35,7 +35,7 @@ namespace WPF_RPG_Form
             widow.ShowDialog();
             if (widow.IsOkPressed == "add")
             {
-                dataBase.AddHeroe( heroe.name, heroe.type, heroe.hp, heroe.mana, heroe.skill, heroe.skill2, heroe.weapon);
+                dataBase.AddHeroe( heroe.name, heroe.type, heroe.hp, heroe.mana, heroe.skill, heroe.skill2, heroe.weapon, 1);
                 Heroe.ListoOfHeroes.Clear();
                 //!!!zamiast usówać wszystko można by dodać tylko zaciągnąć id i pobrać 1 row
                 dataBase.ConectHeroe();
@@ -53,7 +53,7 @@ namespace WPF_RPG_Form
                 if (window.IsOkPressed == "add")
                 {
                     int index = Heroe.ListoOfHeroes.IndexOf(DG.SelectedItem as Heroe);
-                    dataBase.UpdateHeroe(Heroe.id, Heroe.name, Heroe.type, Heroe.hp, Heroe.mana, Heroe.skill, Heroe.skill2, Heroe.weapon);
+                    dataBase.UpdateHeroe(Heroe.id, Heroe.name, Heroe.type, Heroe.hp, Heroe.mana, Heroe.skill, Heroe.skill2, Heroe.weapon, Heroe.lvl);
                     Heroe.ListoOfHeroes[index] = Heroe;
                     DG.Items.Refresh();
                 }
@@ -61,7 +61,7 @@ namespace WPF_RPG_Form
                 {
                     int index = Heroe.ListoOfHeroes.IndexOf(DG.SelectedItem as Heroe);
                     Heroe.ListoOfRemovedHeroes.Add(Heroe.ListoOfHeroes[index]);
-                    dataBase.AddDeletedHeroe(Heroe.name, Heroe.type, Heroe.hp, Heroe.mana, Heroe.skill, Heroe.skill2, Heroe.weapon);
+                    dataBase.AddDeletedHeroe(Heroe.name, Heroe.type, Heroe.hp, Heroe.mana, Heroe.skill, Heroe.skill2, Heroe.weapon, Heroe.lvl);
                     dataBase.DeleteHeroe(Heroe.id);
                     Heroe.ListoOfHeroes.RemoveAt(index);
                     DG.Items.Refresh();

@@ -37,7 +37,8 @@ namespace WPF_RPG_Form
                     Convert.ToInt32(reader.GetValue(4)),
                     reader.GetValue(5).ToString(),
                     reader.GetValue(6).ToString(),
-                    reader.GetValue(7).ToString());
+                    reader.GetValue(7).ToString(),
+                    Convert.ToInt32(reader.GetValue(8)));
                 Heroe.ListoOfHeroes.Add(newHeroe);
             }
 
@@ -45,10 +46,10 @@ namespace WPF_RPG_Form
             cmd.Dispose();
             con.Close();
         }
-        public void UpdateHeroe(int id, string name, string type, int hp, int mana, string skill, string skill2, string weapon)
+        public void UpdateHeroe(int id, string name, string type, int hp, int mana, string skill, string skill2, string weapon, int lvl)
         {
             SqlConnection con = new SqlConnection(@"Data Source=CODEBAKERTY;Initial Catalog=heroedb;Integrated Security=True");
-            SqlCommand cmd = new SqlCommand($"UpdateHeroe '{id}','{name}','{type}',{hp},{mana},'{skill}','{skill2}','{weapon}',p", con);
+            SqlCommand cmd = new SqlCommand($"UpdateHeroe '{id}','{name}','{type}',{hp},{mana},'{skill}','{skill2}','{weapon}', {lvl},p", con);
             con.Open();
             cmd.ExecuteNonQuery();
             cmd.Dispose();
@@ -64,10 +65,10 @@ namespace WPF_RPG_Form
             cmd.Dispose();
             con.Close();
         }
-        public void AddHeroe(string name, string type, int hp, int mana, string skill, string skill2, string weapon)
+        public void AddHeroe(string name, string type, int hp, int mana, string skill, string skill2, string weapon, int lvl)
         {
             SqlConnection con = new SqlConnection(@"Data Source=CODEBAKERTY;Initial Catalog=heroedb;Integrated Security=True");
-            SqlCommand cmd = new SqlCommand($"InsertHeroe '{name}', '{type}', {hp}, {mana}, '{skill}', '{skill2}', '{weapon}', 'p'", con);
+            SqlCommand cmd = new SqlCommand($"InsertHeroe '{name}', '{type}', {hp}, {mana}, '{skill}', '{skill2}', '{weapon}', {lvl}, 'p'", con);
             con.Open();
             cmd.ExecuteNonQuery();
             cmd.Dispose();
@@ -90,7 +91,8 @@ namespace WPF_RPG_Form
                     Convert.ToInt32(reader.GetValue(4)),
                     reader.GetValue(5).ToString(),
                     reader.GetValue(6).ToString(),
-                    reader.GetValue(7).ToString());
+                    reader.GetValue(7).ToString(),
+                    Convert.ToInt32(reader.GetValue(8)));
                 Heroe.ListoOfRemovedHeroes.Add(newHeroe);
             }
 
@@ -99,10 +101,10 @@ namespace WPF_RPG_Form
             con.Close();
         }
 
-        public void AddDeletedHeroe(string name, string type, int hp, int mana, string skill, string skill2, string weapon)
+        public void AddDeletedHeroe(string name, string type, int hp, int mana, string skill, string skill2, string weapon, int lvl)
         {
             SqlConnection con = new SqlConnection(@"Data Source=CODEBAKERTY;Initial Catalog=heroedb;Integrated Security=True");
-            SqlCommand cmd = new SqlCommand($"InsertRemovedHeroe '{name}', '{type}', {hp}, {mana}, '{skill}', '{skill2}', '{weapon}', p", con);
+            SqlCommand cmd = new SqlCommand($"InsertRemovedHeroe '{name}', '{type}', {hp}, {mana}, '{skill}', '{skill2}', '{weapon}', {lvl}, p", con);
             con.Open();
             cmd.ExecuteNonQuery();
             cmd.Dispose();
