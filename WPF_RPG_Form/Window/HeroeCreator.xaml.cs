@@ -22,6 +22,7 @@ namespace WPF_RPG_Form
     {
         private Regex intRegex = new Regex(@"^[1-9]{1}[0-9]*$");
         public string IsOkPressed { get; set; }
+        
         public HeroeCreator()
         {
             InitializeComponent();

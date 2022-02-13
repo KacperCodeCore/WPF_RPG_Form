@@ -121,8 +121,8 @@
                 <RowDefinition Height="30"/>
             </Grid.RowDefinitions>
             <Button Click="Button_Add" Grid.Row="1" Content="Confirm"/>
-            <Button Click="Button_Delete" Grid.Row="2" Content="Delete"/>
-
+            <Button x:Name="ButtonD" Click="Button_Delete" Grid.Row="2" Content="Delete"/>
+            
         </Grid>
     </Grid>
 

@@ -33,6 +33,7 @@ namespace WPF_RPG_Form
             var widow = new HeroeCreator();
             var heroe = new Heroe();
             widow.DataContext = heroe;
+            widow.ButtonD.Visibility = Visibility.Hidden;
             widow.ShowDialog();
             if (widow.IsOkPressed == "add")
             {
@@ -89,11 +90,19 @@ namespace WPF_RPG_Form
 
         private void Button_Removed(object sender, RoutedEventArgs e)
         {
-            var window = new RemovedHeroe();
-            window.ShowDialog();
-            Heroe.ListoOfHeroes.Clear();
-            dataBase.ConectHeroe();
-            RefreshItemsDG();
+            try
+            {
+                var window = new RemovedHeroe();
+                window.ShowDialog();
+                Heroe.ListoOfHeroes.Clear();
+                dataBase.ConectHeroe();
+                RefreshItemsDG();
+                //!!!
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
         public void RefreshItemsDG()
         {
