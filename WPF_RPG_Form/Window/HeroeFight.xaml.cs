@@ -27,6 +27,7 @@ namespace WPF_RPG_Form
 
         public static string qSpell;
         public static string eSpell;
+        public static string weapon;
 
         DispatcherTimer gameTimer = new DispatcherTimer();
         bool moveLeft, moveRight, moveUp, moveDown;
@@ -177,6 +178,7 @@ namespace WPF_RPG_Form
 
             }
 
+            playerSpeed = 10;
 
         }
 
@@ -221,21 +223,40 @@ namespace WPF_RPG_Form
 
             if (e.Key == Key.Space)
             {
-                Rectangle newBullet = new Rectangle
+                if (weapon == "LaserStaff")
                 {
-                    Tag = "bullet",
-                    Height = 5,
-                    Width = 20,
-                    Fill = Brushes.White,
-                    Stroke = Brushes.Red,
-                    FlowDirection = FlowDirection.LeftToRight
+                    Rectangle newBullet = new Rectangle
+                    {
+                        Tag = "bullet",
+                        Height = 2,
+                        Width = 100,
 
-                };
+                    };
+                    ImageBrush bulletImage = new ImageBrush();
+                    bulletImage.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/laserStaff.png"));
+                    newBullet.Fill = bulletImage;
+                    Canvas.SetLeft(newBullet, Canvas.GetLeft(player) + player.Width / 2);
+                    Canvas.SetTop(newBullet, Canvas.GetTop(player) + 20);
 
-                Canvas.SetLeft(newBullet, Canvas.GetLeft(player) + player.Width / 2);
-                Canvas.SetTop(newBullet, Canvas.GetTop(player) - newBullet.Height);
+                    MyCanvas.Children.Add(newBullet);
+                }
+                else if (weapon == "FireStaff")
+                {
+                    Rectangle newBullet = new Rectangle
+                    {
+                        Tag = "bullet",
+                        Height = 5,
+                        Width = 25,
 
-                MyCanvas.Children.Add(newBullet);
+                    };
+                    ImageBrush bulletImage = new ImageBrush();
+                    bulletImage.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/smallFireBall.png"));
+                    newBullet.Fill = bulletImage;
+                    Canvas.SetLeft(newBullet, Canvas.GetLeft(player) + player.Width / 2);
+                    Canvas.SetTop(newBullet, Canvas.GetTop(player) + 20);
+
+                    MyCanvas.Children.Add(newBullet);
+                }
 
             }
 
@@ -282,6 +303,12 @@ namespace WPF_RPG_Form
                     MyCanvas.Children.Add(newBullet);
                 }
 
+            }else if (e.Key == Key.LeftShift && mana > 10)
+            {
+                if (eSpell == "Teleport")
+                {
+                    playerSpeed = 200;
+                }
             }
         }
 

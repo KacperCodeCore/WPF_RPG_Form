@@ -90,13 +90,11 @@
             </ComboBox>
             <!--<TextBox x:Name="Skill2" Grid.Row="6" Grid.Column="2" Text="{Binding skill2, Mode=TwoWay}"/>-->
             <ComboBox x:Name="Skill2" Grid.Row="6" Grid.Column="2" Text="{Binding skill2, Mode=TwoWay}">
-                <ComboBoxItem>Shield</ComboBoxItem>
                 <ComboBoxItem>Teleport</ComboBoxItem>
             </ComboBox>
             <!--<TextBox x:Name="Picture" Grid.Row="7" Grid.Column="2" Text="{Binding weapon, Mode=TwoWay}"/>-->
             <ComboBox x:Name="Picture" Grid.Row="7" Grid.Column="2" Text="{Binding weapon, Mode=TwoWay}">
                 <ComboBoxItem>FireStaff</ComboBoxItem>
-                <ComboBoxItem>Dagger</ComboBoxItem>
                 <ComboBoxItem>LaserStaff</ComboBoxItem>
             </ComboBox>
         </Grid>

@@ -25,60 +25,15 @@ namespace WPF_RPG_Form
         public string skill2 { get; set; }
         public string weapon { get; set; }
 
-        //private BitmapSource? _image;
-        //[XmlIgnore]
-        //public BitmapSource? Image
-        //{
-        //    get { return _image; }
-        //    set { _image = value; }
-        //}
-
-        //[XmlElement("Image")]
-        //public byte[]? ImageBuffer
-        //{
-        //    get
-        //    {
-        //        byte[]? imageBuffer = null;
-
-        //        if (Image != null)
-        //        {
-        //            using (var stream = new MemoryStream())
-        //            {
-        //                var encoder = new PngBitmapEncoder();
-        //                encoder.Frames.Add(BitmapFrame.Create(Image));
-        //                encoder.Save(stream);
-        //                imageBuffer = stream.ToArray();
-        //            }
-        //        }
-
-        //        return imageBuffer;
-        //    }
-        //    set
-        //    {
-        //        if (value == null)
-        //        {
-        //            Image = null;
-        //        }
-        //        else
-        //        {
-        //            using (var stream = new MemoryStream(value))
-        //            {
-        //                var decoder = BitmapDecoder.Create(stream, BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
-        //                Image = decoder.Frames[0];
-        //            }
-        //        }
-        //    }
-        //}
-
         public Heroe()
         {
             this.name = "HeroeName";
             this.type = "Paladin";
             this.hp = 100;
             this.mana = 100;
-            this.skill = "Shield";
-            this.skill2 = "Strike";
-            this.weapon = "Sword";
+            this.skill = "FireBall";
+            this.skill2 = "Teleport";
+            this.weapon = "FireStaff";
         }
         public Heroe(int id, string name, string type, int hp, int mana, string skill, string skill2, string weapon)
         {

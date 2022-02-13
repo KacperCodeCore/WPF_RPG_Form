@@ -21,8 +21,6 @@ namespace WPF_RPG_Form
         {
 
             InitializeComponent();
-
-
             dataBase.ConectHeroe();
 
             DG.ItemsSource = Heroe.ListoOfHeroes;
@@ -80,6 +78,7 @@ namespace WPF_RPG_Form
                 var Heroe = new Heroe((Heroe)DG.SelectedItem);
                 HeroeFight.qSpell = Heroe.skill;
                 HeroeFight.eSpell = Heroe.skill2;
+                HeroeFight.weapon = Heroe.weapon;
                 window.ShowDialog();
             }
         }
