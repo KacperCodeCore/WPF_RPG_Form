@@ -85,31 +85,19 @@
             <TextBox x:Name="Mana" Grid.Row="4" Grid.Column="2" Text="{Binding mana, Mode=TwoWay}" TextChanged="Mana_TextChanged"/>
             <!--<TextBox x:Name="Skill" Grid.Row="5" Grid.Column="2" Text="{Binding skill, Mode=TwoWay}"/>-->
             <ComboBox x:Name="Skill" Grid.Row="5" Grid.Column="2" Text="{Binding skill, Mode=TwoWay}">
-                <ComboBoxItem>Shield</ComboBoxItem>
-                <ComboBoxItem>Fire Ball</ComboBoxItem>
-                <ComboBoxItem>Strike</ComboBoxItem>
-                <ComboBoxItem>invisibility</ComboBoxItem>
-                <ComboBoxItem>Charge</ComboBoxItem>
-                <ComboBoxItem>Teleport</ComboBoxItem>
-                <ComboBoxItem>Laser</ComboBoxItem>
+                <ComboBoxItem>FireBall</ComboBoxItem>
+                <ComboBoxItem>Electric</ComboBoxItem>
             </ComboBox>
             <!--<TextBox x:Name="Skill2" Grid.Row="6" Grid.Column="2" Text="{Binding skill2, Mode=TwoWay}"/>-->
             <ComboBox x:Name="Skill2" Grid.Row="6" Grid.Column="2" Text="{Binding skill2, Mode=TwoWay}">
                 <ComboBoxItem>Shield</ComboBoxItem>
-                <ComboBoxItem>Fire Ball</ComboBoxItem>
-                <ComboBoxItem>Strike</ComboBoxItem>
-                <ComboBoxItem>invisibility</ComboBoxItem>
-                <ComboBoxItem>Charge</ComboBoxItem>
                 <ComboBoxItem>Teleport</ComboBoxItem>
-                <ComboBoxItem>TeleportBack</ComboBoxItem>
-                <ComboBoxItem>Laser</ComboBoxItem>
             </ComboBox>
             <!--<TextBox x:Name="Picture" Grid.Row="7" Grid.Column="2" Text="{Binding weapon, Mode=TwoWay}"/>-->
             <ComboBox x:Name="Picture" Grid.Row="7" Grid.Column="2" Text="{Binding weapon, Mode=TwoWay}">
-                <ComboBoxItem>Sword</ComboBoxItem>
-                <ComboBoxItem>Fire Staff</ComboBoxItem>
+                <ComboBoxItem>FireStaff</ComboBoxItem>
                 <ComboBoxItem>Dagger</ComboBoxItem>
-                <ComboBoxItem>Laser staff</ComboBoxItem>
+                <ComboBoxItem>LaserStaff</ComboBoxItem>
             </ComboBox>
         </Grid>
         <Grid Grid.Column="1" Grid.Row="1">

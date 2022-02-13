@@ -9,11 +9,13 @@
     <Canvas Name="MyCanvas" Focusable="True" Background="Black" KeyDown="OnKeyDown" KeyUp="OnKeyUp" MaxWidth="900" MaxHeight="600">
 
         <Rectangle Name="player" Height="50" Width="60" Fill="Blue" Canvas.Left="112" Canvas.Top="289"/>
+        
+        
+        <Rectangle Name="hpRec" Fill="Red" Height="20" Width="200" Canvas.Left="2" Canvas.Top="2"/>
+        <Rectangle Name="manaRec" Fill="Blue" Height="20" Width="200" Canvas.Left="2" Canvas.Top="24"/>
 
+        <Label Name="scoreText" Content="Score: 0" FontSize="18" FontWeight="Bold" Foreground="White" Canvas.Left="358" Canvas.Top="-8" />
 
-
-        <Label Name="scoreText" Content="Score: 0" FontSize="18" FontWeight="Bold" Foreground="White" />
-        <Label Name="damageText" Content="Score: 0" FontSize="18" FontWeight="Bold" Foreground="White" Canvas.Left="395" />
 
     </Canvas>
 </Window>

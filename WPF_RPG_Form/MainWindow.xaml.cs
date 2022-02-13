@@ -74,10 +74,14 @@ namespace WPF_RPG_Form
         }
         private void Button_Fight(object sender, RoutedEventArgs e)
         {
-            var window = new HeroeFight();
-            //var Heroe = new Heroe((Heroe)DG.SelectedItem);
-            //window.DataContext = Heroe;
-            window.ShowDialog();
+            if (DG.SelectedItem != null)
+            {
+                var window = new HeroeFight();
+                var Heroe = new Heroe((Heroe)DG.SelectedItem);
+                HeroeFight.qSpell = Heroe.skill;
+                HeroeFight.eSpell = Heroe.skill2;
+                window.ShowDialog();
+            }
         }
         private void Window_Closing(object sender, CancelEventArgs e)
         {

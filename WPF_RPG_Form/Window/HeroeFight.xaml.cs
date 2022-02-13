@@ -25,6 +25,9 @@ namespace WPF_RPG_Form
     public partial class HeroeFight : Window
     {
 
+        public static string qSpell;
+        public static string eSpell;
+
         DispatcherTimer gameTimer = new DispatcherTimer();
         bool moveLeft, moveRight, moveUp, moveDown;
         List<Rectangle> itemRemover = new List<Rectangle>();
@@ -38,6 +41,8 @@ namespace WPF_RPG_Form
         int score = 0;
         int damage = 0;
         int enemySpeed = 10;
+        double mana = 100;
+        double hp = 100;
 
         Rect playerHitBox;
 
@@ -73,8 +78,9 @@ namespace WPF_RPG_Form
             enemyCounter -= 1;
 
             scoreText.Content = "Score: " + score;
-            damageText.Content = "Damage " + damage;
-
+            mana += 0.1;
+            hpRec.Width = hp * 2;
+            manaRec.Width = mana * 2;
 
             if (enemyCounter < 0)
             {
@@ -137,7 +143,7 @@ namespace WPF_RPG_Form
                     if (Canvas.GetLeft(x) < 10)
                     {
                         itemRemover.Add(x);
-                        damage += 10;
+                        hp -= 10;
                     }
 
                     Rect enemyHitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
@@ -145,7 +151,7 @@ namespace WPF_RPG_Form
                     if (playerHitBox.IntersectsWith(enemyHitBox))
                     {
                         itemRemover.Add(x);
-                        damage += 5;
+                        hp -= 5;
                     }
 
                 }
@@ -163,12 +169,9 @@ namespace WPF_RPG_Form
                 enemySpeed = 15;
             }
 
-            if (damage > 99)
+            if (hp < 1)
             {
                 gameTimer.Stop();
-                damageText.Content = "Damage: 100";
-                damageText.Foreground = Brushes.Red;
-                MessageBox.Show("Captain You have destroyed " + score + " Alien Ships" + Environment.NewLine + "Press Ok to Play Again", "MOO Says: ");
 
                 System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
                 Application.Current.Shutdown();
@@ -239,22 +242,25 @@ namespace WPF_RPG_Form
 
             if (e.Key == Key.Q)
             {
-                Rectangle newBullet = new Rectangle
+                if (qSpell == "FireBall")
                 {
-                    Tag = "bullet",
-                    Height = 298,
-                    Width = 378,
-                    FlowDirection = FlowDirection.LeftToRight
+                    Rectangle newBullet = new Rectangle
+                    {
+                        Tag = "bullet",
+                        Height = 298,
+                        Width = 378,
+                        FlowDirection = FlowDirection.LeftToRight
 
-                };
+                    };
 
-                ImageBrush bulletImage = new ImageBrush();
-                bulletImage.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/fireball.png"));
-                newBullet.Fill = bulletImage;
-                Canvas.SetLeft(newBullet, Canvas.GetLeft(player) - 100);
-                Canvas.SetTop(newBullet, Canvas.GetTop(player) - 140);
+                    ImageBrush bulletImage = new ImageBrush();
+                    bulletImage.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/fireball.png"));
+                    newBullet.Fill = bulletImage;
+                    Canvas.SetLeft(newBullet, Canvas.GetLeft(player) - 100);
+                    Canvas.SetTop(newBullet, Canvas.GetTop(player) - 140);
 
-                MyCanvas.Children.Add(newBullet);
+                    MyCanvas.Children.Add(newBullet);
+                }
 
             }
         }
