@@ -53,7 +53,7 @@ namespace WPF_RPG_Form
 
             ImageBrush bg = new ImageBrush();
 
-            bg.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/purple.png"));
+            bg.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/grass.jpg"));
             bg.TileMode = TileMode.Tile;
             bg.Viewport = new Rect(0, 0, 0.15, 0.15);
             bg.ViewportUnits = BrushMappingMode.RelativeToBoundingBox;
@@ -104,11 +104,11 @@ namespace WPF_RPG_Form
             {
                 if (x is Rectangle && (string)x.Tag == "bullet")
                 {
-                    Canvas.SetTop(x, Canvas.GetTop(x) - 20);
+                    Canvas.SetLeft(x, Canvas.GetLeft(x) + 20);
 
                     Rect bulletHitBox = new Rect(Canvas.GetLeft(x), Canvas.GetTop(x), x.Width, x.Height);
 
-                    if (Canvas.GetTop(x) < 10)
+                    if (Canvas.GetLeft(x) > 800)
                     {
                         itemRemover.Add(x);
                     }
@@ -132,9 +132,9 @@ namespace WPF_RPG_Form
 
                 if (x is Rectangle && (string)x.Tag == "enemy")
                 {
-                    Canvas.SetTop(x, Canvas.GetTop(x) + enemySpeed);
+                    Canvas.SetLeft(x, Canvas.GetLeft(x) - enemySpeed);
 
-                    if (Canvas.GetTop(x) > 750)
+                    if (Canvas.GetLeft(x) < 10)
                     {
                         itemRemover.Add(x);
                         damage += 10;
@@ -222,15 +222,37 @@ namespace WPF_RPG_Form
                 Rectangle newBullet = new Rectangle
                 {
                     Tag = "bullet",
-                    Height = 20,
-                    Width = 5,
+                    Height = 5,
+                    Width = 20,
                     Fill = Brushes.White,
-                    Stroke = Brushes.Red
+                    Stroke = Brushes.Red,
+                    FlowDirection = FlowDirection.LeftToRight
 
                 };
 
                 Canvas.SetLeft(newBullet, Canvas.GetLeft(player) + player.Width / 2);
                 Canvas.SetTop(newBullet, Canvas.GetTop(player) - newBullet.Height);
+
+                MyCanvas.Children.Add(newBullet);
+
+            }
+
+            if (e.Key == Key.Q)
+            {
+                Rectangle newBullet = new Rectangle
+                {
+                    Tag = "bullet",
+                    Height = 298,
+                    Width = 378,
+                    FlowDirection = FlowDirection.LeftToRight
+
+                };
+
+                ImageBrush bulletImage = new ImageBrush();
+                bulletImage.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/fireball.png"));
+                newBullet.Fill = bulletImage;
+                Canvas.SetLeft(newBullet, Canvas.GetLeft(player) - 100);
+                Canvas.SetTop(newBullet, Canvas.GetTop(player) - 140);
 
                 MyCanvas.Children.Add(newBullet);
 
@@ -241,7 +263,7 @@ namespace WPF_RPG_Form
         {
             ImageBrush enemySprite = new ImageBrush();
 
-            enemySpriteCounter = rand.Next(1, 5);
+            enemySpriteCounter = rand.Next(1, 3);
 
             switch (enemySpriteCounter)
             {
@@ -250,15 +272,6 @@ namespace WPF_RPG_Form
                     break;
                 case 2:
                     enemySprite.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/2.png"));
-                    break;
-                case 3:
-                    enemySprite.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/3.png"));
-                    break;
-                case 4:
-                    enemySprite.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/4.png"));
-                    break;
-                case 5:
-                    enemySprite.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/5.png"));
                     break;
             }
 
@@ -270,8 +283,8 @@ namespace WPF_RPG_Form
                 Fill = enemySprite
             };
 
-            Canvas.SetTop(newEnemy, -100);
-            Canvas.SetLeft(newEnemy, rand.Next(30, 430));
+            Canvas.SetTop(newEnemy, rand.Next(30, 570));
+            Canvas.SetLeft(newEnemy, 930);
             MyCanvas.Children.Add(newEnemy);
 
         }

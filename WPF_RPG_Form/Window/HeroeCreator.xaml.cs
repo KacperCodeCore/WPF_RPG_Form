@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,6 +20,7 @@ namespace WPF_RPG_Form
     /// </summary>
     public partial class HeroeCreator : Window
     {
+        private Regex intRegex = new Regex(@"^[1-9]{1}[0-9]*$");
         public string IsOkPressed { get; set; }
         public HeroeCreator()
         {
@@ -36,5 +38,23 @@ namespace WPF_RPG_Form
             IsOkPressed = "delete";
             this.Close();
         }
+
+        private void Mana_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string text = Mana.Text;
+
+
+            if (!intRegex.IsMatch(text))
+            {
+                Mana.Text = "100";
+            }
+            else if (Convert.ToInt32(text) > 100)
+            {
+                Mana.Text = "100";
+            }
+        }
+        
     }
+    
 }
+

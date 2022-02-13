@@ -73,9 +73,9 @@ namespace WPF_RPG_Form
         public Heroe()
         {
             this.name = "HeroeName";
-            this.type = "Paladin+1000HP";
-            this.hp = 1000;
-            this.mana = 1000;
+            this.type = "Paladin";
+            this.hp = 100;
+            this.mana = 100;
             this.skill = "Shield";
             this.skill2 = "Strike";
             this.weapon = "Sword";
