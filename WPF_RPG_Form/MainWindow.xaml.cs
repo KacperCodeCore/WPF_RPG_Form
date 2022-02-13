@@ -90,19 +90,12 @@ namespace WPF_RPG_Form
 
         private void Button_Removed(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                var window = new RemovedHeroe();
-                window.ShowDialog();
-                Heroe.ListoOfHeroes.Clear();
-                dataBase.ConectHeroe();
-                RefreshItemsDG();
-                //!!!
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
+            var window = new RemovedHeroe();
+            window.ShowDialog();
+            Heroe.ListoOfHeroes.Clear();
+            dataBase.ConectHeroe();
+            RefreshItemsDG();
+            //!!!
         }
         public void RefreshItemsDG()
         {

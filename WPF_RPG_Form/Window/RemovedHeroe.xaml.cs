@@ -29,18 +29,31 @@ namespace WPF_RPG_Form
 
         private void Button_Restore(object sender, RoutedEventArgs e)
         {
-            int index = Heroe.ListoOfRemovedHeroes.IndexOf(DG1.SelectedItem as Heroe);
-            dataBase1.MoveFromRemovedToHeroe(Heroe.ListoOfRemovedHeroes[index].id);
-            Heroe.ListoOfRemovedHeroes.RemoveAt(index);
-            DG1.Items.Refresh();
+            try
+            {
+                int index = Heroe.ListoOfRemovedHeroes.IndexOf(DG1.SelectedItem as Heroe);
+                dataBase1.MoveFromRemovedToHeroe(Heroe.ListoOfRemovedHeroes[index].id);
+                Heroe.ListoOfRemovedHeroes.RemoveAt(index);
+                DG1.Items.Refresh();
+            }
+            catch (Exception exc)
+            {
+            }
         }
 
         private void Button_Delete(object sender, RoutedEventArgs e)
         {
-            int index = Heroe.ListoOfRemovedHeroes.IndexOf(DG1.SelectedItem as Heroe);
-            dataBase1.DeleteRemovedHeroe(Heroe.ListoOfRemovedHeroes[index].id);
-            Heroe.ListoOfRemovedHeroes.RemoveAt(index);
-            DG1.Items.Refresh();
+            try
+            {
+                int index = Heroe.ListoOfRemovedHeroes.IndexOf(DG1.SelectedItem as Heroe);
+                dataBase1.DeleteRemovedHeroe(Heroe.ListoOfRemovedHeroes[index].id);
+                Heroe.ListoOfRemovedHeroes.RemoveAt(index);
+                DG1.Items.Refresh();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
 
         private void DG1_SelectionChanged(object sender, SelectionChangedEventArgs e)
