@@ -28,6 +28,8 @@ namespace WPF_RPG_Form
         public static string qSpell;
         public static string eSpell;
         public static string weapon;
+        public static double mana;
+        public static double hp;
 
         DispatcherTimer gameTimer = new DispatcherTimer();
         bool moveLeft, moveRight, moveUp, moveDown;
@@ -41,8 +43,7 @@ namespace WPF_RPG_Form
         int limit = 50;
         int score = 0;
         int enemySpeed = 10;
-        double mana = 100;
-        double hp = 100;
+        
 
         Rect playerHitBox;
 

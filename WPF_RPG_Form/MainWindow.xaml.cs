@@ -32,6 +32,7 @@ namespace WPF_RPG_Form
             var heroe = new Heroe();
             widow.DataContext = heroe;
             widow.ButtonD.Visibility = Visibility.Hidden;
+            HeroeCreator.lvl = 1;
             widow.ShowDialog();
             if (widow.IsOkPressed == "add")
             {
@@ -47,22 +48,23 @@ namespace WPF_RPG_Form
             if (DG.SelectedItem != null)
             {
                 var window = new HeroeCreator();
-                var Heroe = new Heroe((Heroe)DG.SelectedItem);
-                window.DataContext = Heroe;
+                var heroe = new Heroe((Heroe)DG.SelectedItem);
+                window.DataContext = heroe;
+                HeroeCreator.lvl = heroe.lvl;
                 window.ShowDialog();
                 if (window.IsOkPressed == "add")
                 {
                     int index = Heroe.ListoOfHeroes.IndexOf(DG.SelectedItem as Heroe);
-                    dataBase.UpdateHeroe(Heroe.id, Heroe.name, Heroe.type, Heroe.hp, Heroe.mana, Heroe.skill, Heroe.skill2, Heroe.weapon, Heroe.lvl);
-                    Heroe.ListoOfHeroes[index] = Heroe;
+                    dataBase.UpdateHeroe(heroe.id, heroe.name, heroe.type, heroe.hp, heroe.mana, heroe.skill, heroe.skill2, heroe.weapon, heroe.lvl);
+                    Heroe.ListoOfHeroes[index] = heroe;
                     DG.Items.Refresh();
                 }
                 else if (window.IsOkPressed == "delete")
                 {
                     int index = Heroe.ListoOfHeroes.IndexOf(DG.SelectedItem as Heroe);
                     Heroe.ListoOfRemovedHeroes.Add(Heroe.ListoOfHeroes[index]);
-                    dataBase.AddDeletedHeroe(Heroe.name, Heroe.type, Heroe.hp, Heroe.mana, Heroe.skill, Heroe.skill2, Heroe.weapon, Heroe.lvl);
-                    dataBase.DeleteHeroe(Heroe.id);
+                    dataBase.AddDeletedHeroe(heroe.name, heroe.type, heroe.hp, heroe.mana, heroe.skill, heroe.skill2, heroe.weapon, heroe.lvl);
+                    dataBase.DeleteHeroe(heroe.id);
                     Heroe.ListoOfHeroes.RemoveAt(index);
                     DG.Items.Refresh();
                 }
@@ -76,6 +78,8 @@ namespace WPF_RPG_Form
             {
                 var window = new HeroeFight();
                 var Heroe = new Heroe((Heroe)DG.SelectedItem);
+                HeroeFight.mana = Heroe.mana;
+                HeroeFight.hp = Heroe.hp;
                 HeroeFight.qSpell = Heroe.skill;
                 HeroeFight.eSpell = Heroe.skill2;
                 HeroeFight.weapon = Heroe.weapon;

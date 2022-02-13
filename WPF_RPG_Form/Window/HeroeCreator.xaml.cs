@@ -18,8 +18,10 @@ namespace WPF_RPG_Form
     /// <summary>
     /// Interaction logic for PersonCreator.xaml
     /// </summary>
+   
     public partial class HeroeCreator : Window
     {
+        public static int lvl;
         private Regex intRegex = new Regex(@"^[1-9]{1}[0-9]*$");
         public string IsOkPressed { get; set; }
         
@@ -45,11 +47,11 @@ namespace WPF_RPG_Form
             string text = Mana.Text;
             if (!intRegex.IsMatch(text))
             {
-                Mana.Text = "100";
+                Mana.Text = (100 + lvl).ToString();
             }
             else if (Convert.ToInt32(text) > 100)
             {
-                Mana.Text = "100";
+                Mana.Text = (100 + lvl).ToString();
             }
         }
 
@@ -58,11 +60,11 @@ namespace WPF_RPG_Form
             string text = Hp.Text;
             if (!intRegex.IsMatch(text))
             {
-                Hp.Text = "100";
+                Hp.Text = (100 + lvl).ToString();
             }
             else if (Convert.ToInt32(text) > 100)
             {
-                Hp.Text = "100";
+                Hp.Text = (100 + lvl).ToString();
             }
         }
 
