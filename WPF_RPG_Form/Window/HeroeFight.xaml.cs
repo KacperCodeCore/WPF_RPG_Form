@@ -28,8 +28,10 @@ namespace WPF_RPG_Form
         public static string qSpell;
         public static string eSpell;
         public static string weapon;
-        public static double mana;
+        public static double maxMana;
+        public static double mana = maxMana;
         public static double hp;
+        public static double lvl;
 
         DispatcherTimer gameTimer = new DispatcherTimer();
         bool moveLeft, moveRight, moveUp, moveDown;
@@ -79,7 +81,13 @@ namespace WPF_RPG_Form
             enemyCounter -= 1;
 
             scoreText.Content = "Score: " + score;
-            mana += 0.1;
+            
+
+            if (mana < maxMana)
+            {
+                mana += 0.1;
+            }
+
             hpRec.Width = hp * 2;
             manaRec.Width = mana * 2;
 
@@ -166,6 +174,21 @@ namespace WPF_RPG_Form
 
             if (score > 5)
             {
+                limit = 40;
+                enemySpeed = 12;
+            }
+            if (score > 10)
+            {
+                limit = 30;
+                enemySpeed = 13;
+            }
+            if (score > 15)
+            {
+                limit = 30;
+                enemySpeed = 14;
+            }
+            if (score > 20)
+            {
                 limit = 20;
                 enemySpeed = 15;
             }
@@ -178,8 +201,17 @@ namespace WPF_RPG_Form
                 Application.Current.Shutdown();
 
             }
+            if (score > 10)
+            {
+                gameTimer.Stop();
+                lvl++;
+
+                System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
+                Application.Current.Shutdown();
+            }
 
             playerSpeed = 10;
+
 
         }
 

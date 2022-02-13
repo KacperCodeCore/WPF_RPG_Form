@@ -78,12 +78,17 @@ namespace WPF_RPG_Form
             {
                 var window = new HeroeFight();
                 var Heroe = new Heroe((Heroe)DG.SelectedItem);
+                HeroeFight.maxMana = Heroe.mana;
                 HeroeFight.mana = Heroe.mana;
                 HeroeFight.hp = Heroe.hp;
                 HeroeFight.qSpell = Heroe.skill;
                 HeroeFight.eSpell = Heroe.skill2;
                 HeroeFight.weapon = Heroe.weapon;
+                HeroeFight.lvl = Heroe.lvl;
                 window.ShowDialog();
+                Heroe.lvl = Convert.ToInt32(HeroeFight.lvl);
+                Heroe.lvl++;
+                DG.Items.Refresh();
             }
         }
         private void Window_Closing(object sender, CancelEventArgs e)
