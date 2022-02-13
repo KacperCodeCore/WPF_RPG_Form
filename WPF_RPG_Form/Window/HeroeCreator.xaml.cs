@@ -42,8 +42,6 @@ namespace WPF_RPG_Form
         private void Mana_TextChanged(object sender, TextChangedEventArgs e)
         {
             string text = Mana.Text;
-
-
             if (!intRegex.IsMatch(text))
             {
                 Mana.Text = "100";
@@ -53,7 +51,27 @@ namespace WPF_RPG_Form
                 Mana.Text = "100";
             }
         }
-        
+
+        private void Hp_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            string text = Hp.Text;
+            if (!intRegex.IsMatch(text))
+            {
+                Hp.Text = "100";
+            }
+            else if (Convert.ToInt32(text) > 100)
+            {
+                Hp.Text = "100";
+            }
+        }
+
+        private void Name_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (Name.Text.Length == 0)
+            {
+                Name.Text = "H";
+            }
+        }
     }
     
 }

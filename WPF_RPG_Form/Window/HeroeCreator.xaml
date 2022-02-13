@@ -74,14 +74,14 @@
             <Label Grid.Row="5" Grid.Column="1" Content="Skill"/>
             <Label Grid.Row="6" Grid.Column="1" Content="Skill2"/>
             <Label Grid.Row="7" Grid.Column="1" Content="Weapon"/>
-            <TextBox x:Name="Name" Grid.Row="1" Grid.Column="2" Text="{Binding name, Mode=TwoWay}"/>
+            <TextBox x:Name="Name" Grid.Row="1" Grid.Column="2" Text="{Binding name, Mode=TwoWay}" TextChanged="Name_TextChanged"/>
             <!--<TextBox x:Name="Type" Grid.Row="2" Grid.Column="2" Text="{Binding type, Mode=TwoWay}"/>-->
             <ComboBox x:Name="Type" Grid.Row="2" Grid.Column="2" Text="{Binding type, Mode=TwoWay}">
                 <ComboBoxItem>Paladin</ComboBoxItem>
                 <ComboBoxItem>Mage</ComboBoxItem>
                 <ComboBoxItem>Assasin</ComboBoxItem>
             </ComboBox>
-            <TextBox x:Name="Hp" Grid.Row="3" Grid.Column="2" Text="{Binding hp, Mode=TwoWay}"/>
+            <TextBox x:Name="Hp" Grid.Row="3" Grid.Column="2" Text="{Binding hp, Mode=TwoWay}" TextChanged="Hp_TextChanged"/>
             <TextBox x:Name="Mana" Grid.Row="4" Grid.Column="2" Text="{Binding mana, Mode=TwoWay}" TextChanged="Mana_TextChanged"/>
             <!--<TextBox x:Name="Skill" Grid.Row="5" Grid.Column="2" Text="{Binding skill, Mode=TwoWay}"/>-->
             <ComboBox x:Name="Skill" Grid.Row="5" Grid.Column="2" Text="{Binding skill, Mode=TwoWay}">
