@@ -39,7 +39,6 @@ namespace WPF_RPG_Form
         int playerSpeed = 10;
         int limit = 50;
         int score = 0;
-        int damage = 0;
         int enemySpeed = 10;
         double mana = 100;
         double hp = 100;
@@ -240,7 +239,7 @@ namespace WPF_RPG_Form
 
             }
 
-            if (e.Key == Key.Q)
+            if (e.Key == Key.Q && mana > 10)
             {
                 if (qSpell == "FireBall")
                 {
@@ -259,6 +258,27 @@ namespace WPF_RPG_Form
                     Canvas.SetLeft(newBullet, Canvas.GetLeft(player) - 100);
                     Canvas.SetTop(newBullet, Canvas.GetTop(player) - 140);
 
+                    mana -= 10;
+                    MyCanvas.Children.Add(newBullet);
+                }
+                else if (qSpell == "Electric")
+                {
+                    Rectangle newBullet = new Rectangle
+                    {
+                        Tag = "bullet",
+                        Height = 550,
+                        Width = 40,
+                        FlowDirection = FlowDirection.LeftToRight
+
+                    };
+
+                    ImageBrush bulletImage = new ImageBrush();
+                    bulletImage.ImageSource = new BitmapImage(new Uri("pack://application:,,,/images/electric.png"));
+                    newBullet.Fill = bulletImage;
+                    Canvas.SetLeft(newBullet, Canvas.GetLeft(player));
+                    Canvas.SetTop(newBullet, Canvas.GetTop(player) - 270);
+
+                    mana -= 15;
                     MyCanvas.Children.Add(newBullet);
                 }
 
