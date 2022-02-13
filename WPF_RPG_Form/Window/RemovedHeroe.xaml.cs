@@ -29,30 +29,24 @@ namespace WPF_RPG_Form
 
         private void Button_Restore(object sender, RoutedEventArgs e)
         {
-            try
+            if (DG1.SelectedItem != null)
             {
                 int index = Heroe.ListoOfRemovedHeroes.IndexOf(DG1.SelectedItem as Heroe);
-                dataBase1.MoveFromRemovedToHeroe(Heroe.ListoOfRemovedHeroes[index].id);
                 Heroe.ListoOfRemovedHeroes.RemoveAt(index);
+                dataBase1.MoveFromRemovedToHeroe(Heroe.ListoOfRemovedHeroes[index].id);
                 DG1.Items.Refresh();
             }
-            catch (Exception exc)
-            {
-            }
+
         }
 
         private void Button_Delete(object sender, RoutedEventArgs e)
         {
-            try
+            if (DG1.SelectedItem != null)
             {
                 int index = Heroe.ListoOfRemovedHeroes.IndexOf(DG1.SelectedItem as Heroe);
-                dataBase1.DeleteRemovedHeroe(Heroe.ListoOfRemovedHeroes[index].id);
                 Heroe.ListoOfRemovedHeroes.RemoveAt(index);
+                dataBase1.DeleteRemovedHeroe(Heroe.ListoOfRemovedHeroes[index].id);
                 DG1.Items.Refresh();
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
             }
         }
 
