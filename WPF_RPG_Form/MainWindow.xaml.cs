@@ -49,7 +49,7 @@ namespace WPF_RPG_Form
             {
                 var window = new HeroeCreator();
                 var heroe = new Heroe((Heroe)DG.SelectedItem);
-                window.DataContext = heroe;
+                window.DataContext = heroe;  
                 HeroeCreator.lvl = heroe.lvl;
                 window.ShowDialog();
                 if (window.IsOkPressed == "add")
@@ -77,17 +77,25 @@ namespace WPF_RPG_Form
             if (DG.SelectedItem != null)
             {
                 var window = new HeroeFight();
-                var Heroe = new Heroe((Heroe)DG.SelectedItem);
-                HeroeFight.maxMana = Heroe.mana;
-                HeroeFight.mana = Heroe.mana;
-                HeroeFight.hp = Heroe.hp;
-                HeroeFight.qSpell = Heroe.skill;
-                HeroeFight.eSpell = Heroe.skill2;
-                HeroeFight.weapon = Heroe.weapon;
-                HeroeFight.lvl = Heroe.lvl;
+                var heroe = new Heroe((Heroe)DG.SelectedItem);
+                HeroeFight.maxMana = heroe.mana;
+                HeroeFight.mana = heroe.mana;
+                HeroeFight.hp = heroe.hp;
+                HeroeFight.qSpell = heroe.skill;
+                HeroeFight.eSpell = heroe.skill2;
+                HeroeFight.weapon = heroe.weapon;
+                HeroeFight.lvl = heroe.lvl;
                 window.ShowDialog();
-                Heroe.lvl = Convert.ToInt32(HeroeFight.lvl);
-                Heroe.lvl++;
+
+                //MessageBox.Show(HeroeFight.lvl.ToString());
+                int curentLvl =  heroe.lvl + Convert.ToInt32(HeroeFight.lvl);
+                int lvl = Convert.ToInt32(HeroeFight.lvl);
+
+
+                int index = Heroe.ListoOfHeroes.IndexOf(DG.SelectedItem as Heroe);
+                //Heroe.ListoOfHeroes[index].lvl = Convert.ToInt32(HeroeFight.lvl);
+                Heroe.ListoOfHeroes[index].lvl = Convert.ToInt32(HeroeFight.lvl);
+                dataBase.UpdateHeroe(heroe.id, heroe.name, heroe.type, heroe.hp + lvl, heroe.mana + lvl, heroe.skill, heroe.skill2, heroe.weapon, curentLvl);
                 DG.Items.Refresh();
             }
         }

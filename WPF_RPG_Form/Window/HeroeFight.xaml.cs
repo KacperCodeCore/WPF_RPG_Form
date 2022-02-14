@@ -196,15 +196,16 @@ namespace WPF_RPG_Form
             if (hp < 1)
             {
                 gameTimer.Stop();
+                lvl = 0;
 
                 System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
                 Application.Current.Shutdown();
 
             }
-            if (score > 10)
+            if (score > 1)
             {
                 gameTimer.Stop();
-                lvl++;
+                lvl = 1;
 
                 System.Diagnostics.Process.Start(Application.ResourceAssembly.Location);
                 Application.Current.Shutdown();
