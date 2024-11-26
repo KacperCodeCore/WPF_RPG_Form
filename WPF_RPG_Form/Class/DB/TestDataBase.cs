@@ -15,6 +15,7 @@ namespace P_Lista_3_formularz.Class.DB
             private static List<Heroe> heroes = new List<Heroe>();
             private static List<Heroe> removedHeroes = new List<Heroe>();
             private static int nextId = 1;
+          
 
             public void LoadAllHeroes()
             {
