@@ -6,10 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using P_Lista_3_formularz.Class.DB;
 
 namespace WPF_RPG_Form
 {
-    internal class DataBase
+    internal class DataBase : IDataBase
     {
         static int id;
         //public DataBase()
@@ -75,7 +76,7 @@ namespace WPF_RPG_Form
             cmd.ExecuteNonQuery();
             Disconect(cmd);
         }
-        public void LoadRemovedHeroe()
+        public void LoadRemovedHeroes()
         {
             SqlCommand cmd = Conect("selectRemovedheroe");
 
@@ -117,7 +118,7 @@ namespace WPF_RPG_Form
             cmd.ExecuteNonQuery();
             Disconect(cmd);
         }
-        
+
 
     }
 

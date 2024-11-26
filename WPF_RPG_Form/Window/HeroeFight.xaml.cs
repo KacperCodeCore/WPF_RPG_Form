@@ -45,7 +45,7 @@ namespace WPF_RPG_Form
         int limit = 50;
         int score = 0;
         int enemySpeed = 10;
-        
+
 
         Rect playerHitBox;
 
@@ -81,7 +81,7 @@ namespace WPF_RPG_Form
             enemyCounter -= 1;
 
             scoreText.Content = "Score: " + score;
-            
+
 
             if (mana < maxMana)
             {
@@ -337,7 +337,8 @@ namespace WPF_RPG_Form
                     MyCanvas.Children.Add(newBullet);
                 }
 
-            }else if (e.Key == Key.LeftShift && mana > 10)
+            }
+            else if (e.Key == Key.LeftShift && mana > 10)
             {
                 if (eSpell == "Teleport")
                 {
