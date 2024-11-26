@@ -22,7 +22,7 @@ namespace WPF_RPG_Form
         }
         public void ConectHeroe()
         {
-            SqlConnection con = new SqlConnection(@"Data Source=CODEBAKERTY;Initial Catalog=heroedb;Integrated Security=True");
+            SqlConnection con = new SqlConnection(@"Data Source=MYCOREOFUNIVERS;Initial Catalog=heroedb;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("selectheroe", con);
             con.Open();
 
@@ -48,7 +48,7 @@ namespace WPF_RPG_Form
         }
         public void UpdateHeroe(int id, string name, string type, int hp, int mana, string skill, string skill2, string weapon, int lvl)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=CODEBAKERTY;Initial Catalog=heroedb;Integrated Security=True");
+            SqlConnection con = new SqlConnection(@"Data Source=MYCOREOFUNIVERS;Initial Catalog=heroedb;Integrated Security=True");
             SqlCommand cmd = new SqlCommand($"UpdateHeroe '{id}','{name}','{type}',{hp},{mana},'{skill}','{skill2}','{weapon}', {lvl},p", con);
             con.Open();
             cmd.ExecuteNonQuery();
@@ -58,7 +58,7 @@ namespace WPF_RPG_Form
 
         public void DeleteHeroe(int id)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=CODEBAKERTY;Initial Catalog=heroedb;Integrated Security=True");
+            SqlConnection con = new SqlConnection(@"Data Source=MYCOREOFUNIVERS;Initial Catalog=heroedb;Integrated Security=True");
             SqlCommand cmd = new SqlCommand($"DeleteHeroe {id}", con);
             con.Open();
             cmd.ExecuteNonQuery();
@@ -67,7 +67,7 @@ namespace WPF_RPG_Form
         }
         public void AddHeroe(string name, string type, int hp, int mana, string skill, string skill2, string weapon, int lvl)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=CODEBAKERTY;Initial Catalog=heroedb;Integrated Security=True");
+            SqlConnection con = new SqlConnection(@"Data Source=MYCOREOFUNIVERS;Initial Catalog=heroedb;Integrated Security=True");
             SqlCommand cmd = new SqlCommand($"InsertHeroe '{name}', '{type}', {hp}, {mana}, '{skill}', '{skill2}', '{weapon}', {lvl}, 'p'", con);
             con.Open();
             cmd.ExecuteNonQuery();
@@ -76,7 +76,7 @@ namespace WPF_RPG_Form
         }
         public void ConectRemovedHeroe()
         {
-            SqlConnection con = new SqlConnection(@"Data Source=CODEBAKERTY;Initial Catalog=heroedb;Integrated Security=True");
+            SqlConnection con = new SqlConnection(@"Data Source=MYCOREOFUNIVERS;Initial Catalog=heroedb;Integrated Security=True");
             SqlCommand cmd = new SqlCommand("selectRemovedheroe", con);
             con.Open();
 
@@ -103,7 +103,7 @@ namespace WPF_RPG_Form
 
         public void AddDeletedHeroe(string name, string type, int hp, int mana, string skill, string skill2, string weapon, int lvl)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=CODEBAKERTY;Initial Catalog=heroedb;Integrated Security=True");
+            SqlConnection con = new SqlConnection(@"Data Source=MYCOREOFUNIVERS;Initial Catalog=heroedb;Integrated Security=True");
             SqlCommand cmd = new SqlCommand($"InsertRemovedHeroe '{name}', '{type}', {hp}, {mana}, '{skill}', '{skill2}', '{weapon}', {lvl}, p", con);
             con.Open();
             cmd.ExecuteNonQuery();
@@ -112,7 +112,7 @@ namespace WPF_RPG_Form
         }
         public void MoveFromRemovedToHeroe(int id)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=CODEBAKERTY;Initial Catalog=heroedb;Integrated Security=True");
+            SqlConnection con = new SqlConnection(@"Data Source=MYCOREOFUNIVERS;Initial Catalog=heroedb;Integrated Security=True");
             SqlCommand cmd = new SqlCommand($"MoveFromRemovedToHeroe {id}", con);
             con.Open();
             cmd.ExecuteNonQuery();
@@ -121,7 +121,7 @@ namespace WPF_RPG_Form
         }
         public void DeleteRemovedHeroe(int id)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=CODEBAKERTY;Initial Catalog=heroedb;Integrated Security=True");
+            SqlConnection con = new SqlConnection(@"Data Source=MYCOREOFUNIVERS;Initial Catalog=heroedb;Integrated Security=True");
             SqlCommand cmd = new SqlCommand($"DeleteRemovedHeroe {id}", con);
             con.Open();
             cmd.ExecuteNonQuery();
