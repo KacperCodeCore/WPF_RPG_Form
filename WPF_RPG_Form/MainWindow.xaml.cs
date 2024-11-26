@@ -21,7 +21,7 @@ namespace WPF_RPG_Form
         {
 
             InitializeComponent();
-            dataBase.ConectHeroe();
+            dataBase.LoadAllHeroes();
 
             DG.ItemsSource = Heroe.ListoOfHeroes;
         }
@@ -39,7 +39,7 @@ namespace WPF_RPG_Form
                 dataBase.AddHeroe( heroe.name, heroe.type, heroe.hp, heroe.mana, heroe.skill, heroe.skill2, heroe.weapon, 1);
                 Heroe.ListoOfHeroes.Clear();
                 //!!!zamiast usówać wszystko można by dodać tylko zaciągnąć id i pobrać 1 row
-                dataBase.ConectHeroe();
+                dataBase.LoadAllHeroes();
                 DG.Items.Refresh();
             }
         }
@@ -113,7 +113,7 @@ namespace WPF_RPG_Form
             var window = new RemovedHeroe();
             window.ShowDialog();
             Heroe.ListoOfHeroes.Clear();
-            dataBase.ConectHeroe();
+            dataBase.LoadAllHeroes();
             RefreshItemsDG();
             //!!!
         }

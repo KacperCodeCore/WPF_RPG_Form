@@ -22,7 +22,7 @@ namespace WPF_RPG_Form
             InitializeComponent();
 
             Heroe.ListoOfRemovedHeroes.Clear();
-            dataBase1.ConectRemovedHeroe();
+            dataBase1.LoadRemovedHeroe();
 
             DG1.ItemsSource = Heroe.ListoOfRemovedHeroes;
         }
