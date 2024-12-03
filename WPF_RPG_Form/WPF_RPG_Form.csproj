@@ -7,6 +7,7 @@
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     <UseWPF>true</UseWPF>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+	<GenerateProgramFile>false</GenerateProgramFile>
   </PropertyGroup>
   <ItemGroup>
     <Resource Include="images\grass.jpg" />
@@ -31,18 +32,30 @@
     <Resource Include="images\laserStaff.png" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Bold.Licensing" Version="6.3.16" />
-    <PackageReference Include="BoldReports.WPF" Version="6.3.16" />
+    <PackageReference Include="Bold.Licensing" Version="6.3.17" />
+    <PackageReference Include="BoldReports.WPF" Version="6.3.17" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="Syncfusion.DocIO.Wpf" Version="27.2.4" />
-    <PackageReference Include="Syncfusion.Grid.WPF" Version="27.2.4" />
-    <PackageReference Include="Syncfusion.Licensing" Version="27.2.4" />
-    <PackageReference Include="Syncfusion.Pdf.Wpf" Version="27.2.4" />
-    <PackageReference Include="Syncfusion.Presentation.Wpf" Version="27.2.4" />
-    <PackageReference Include="Syncfusion.SfMaps.WPF" Version="27.2.4" />
-    <PackageReference Include="Syncfusion.Shared.WPF" Version="27.2.4" />
-    <PackageReference Include="Syncfusion.XlsIO.Wpf" Version="27.2.4" />
+    <PackageReference Include="Syncfusion.DocIO.Wpf" Version="27.2.5" />
+    <PackageReference Include="Syncfusion.Grid.WPF" Version="27.2.5" />
+    <PackageReference Include="Syncfusion.Licensing" Version="27.2.5" />
+    <PackageReference Include="Syncfusion.Pdf.Wpf" Version="27.2.5" />
+    <PackageReference Include="Syncfusion.Presentation.Wpf" Version="27.2.5" />
+    <PackageReference Include="Syncfusion.SfMaps.WPF" Version="27.2.5" />
+    <PackageReference Include="Syncfusion.Shared.WPF" Version="27.2.5" />
+    <PackageReference Include="Syncfusion.XlsIO.Wpf" Version="27.2.5" />
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+    <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
+    <PackageReference Include="xunit.analyzers" Version="1.17.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="xunit.assert" Version="2.9.2" />
+    <PackageReference Include="xunit.core" Version="2.9.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.8.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 </Project>
