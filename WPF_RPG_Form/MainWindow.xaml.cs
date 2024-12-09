@@ -19,29 +19,44 @@ namespace WPF_RPG_Form
         DataBase dataBase1 = new DataBase();
         public MainWindow()
         {
-
             InitializeComponent();
             dataBase.LoadAllHeroes();
 
             DG.ItemsSource = Heroe.ListoOfHeroes;
         }
+        public string GetGreetingForTest()
+        {
+            return "Welcome to WPF RPG!";
+        }
 
+        public bool AddHero(string name = "name", string type = "Hunter", int hp = 20, int mana = 20, string skill = "skil1", string skill2 = "skil2", string weapon = "skil1", int lvl = 1)
+        {
+            try
+            {
+                var widow = new HeroeCreator();
+                var heroe = new Heroe();
+                widow.DataContext = heroe;
+                widow.ButtonD.Visibility = Visibility.Hidden;
+                HeroeCreator.lvl = 1;
+                widow.ShowDialog();
+                if (widow.IsOkPressed == "add")
+                {
+                    dataBase.AddHeroe(heroe.name, heroe.type, heroe.hp, heroe.mana, heroe.skill, heroe.skill2, heroe.weapon, 1);
+                    Heroe.ListoOfHeroes.Clear();
+                    //!!!zamiast usówać wszystko można by dodać tylko zaciągnąć id i pobrać 1 row
+                    dataBase.LoadAllHeroes();
+                    DG.Items.Refresh();
+                }
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
         private void Button_Add(object sender, RoutedEventArgs e)
         {
-            var widow = new HeroeCreator();
-            var heroe = new Heroe();
-            widow.DataContext = heroe;
-            widow.ButtonD.Visibility = Visibility.Hidden;
-            HeroeCreator.lvl = 1;
-            widow.ShowDialog();
-            if (widow.IsOkPressed == "add")
-            {
-                dataBase.AddHeroe( heroe.name, heroe.type, heroe.hp, heroe.mana, heroe.skill, heroe.skill2, heroe.weapon, 1);
-                Heroe.ListoOfHeroes.Clear();
-                //!!!zamiast usówać wszystko można by dodać tylko zaciągnąć id i pobrać 1 row
-                dataBase.LoadAllHeroes();
-                DG.Items.Refresh();
-            }
+            AddHero();
         }
         private void Button_Edit(object sender, RoutedEventArgs e)
         {
