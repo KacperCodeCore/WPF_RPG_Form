@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Collections.ObjectModel;
 using System.Windows.Data;
 using System.IO;
+using log4net;
 
 
 namespace WPF_RPG_Form
@@ -14,7 +15,9 @@ namespace WPF_RPG_Form
 
     public partial class MainWindow : Window
     {
-        
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
+
         DataBase dataBase = new DataBase();
         DataBase dataBase1 = new DataBase();
         public MainWindow()
@@ -23,6 +26,7 @@ namespace WPF_RPG_Form
             dataBase.LoadAllHeroes();
 
             DG.ItemsSource = Heroe.ListoOfHeroes;
+            log.Info("Hello MainWindow!");
         }
         public string GetGreetingForTest()
         {

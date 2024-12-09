@@ -1,0 +1,9 @@
+2024-12-09 20:23:12,264 [1] INFO WPF_RPG_Form.App - aaaaaaaaaaa!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!Hello logging world!
+2024-12-09 20:23:12,270 [1] INFO WPF_RPG_Form.App - Hello logging world!
+2024-12-09 20:23:12,271 [1] ERROR WPF_RPG_Form.App - errorrrrrrrrrrrrrrrrrrrrrrrrr
+2024-12-09 20:25:19,921 [1] INFO WPF_RPG_Form.App - Hello logging world!
+2024-12-09 20:25:20,408 [1] INFO WPF_RPG_Form.MainWindow - Hello logging world!
+2024-12-09 20:26:57,495 [1] INFO WPF_RPG_Form.App - Hello logging world!
+2024-12-09 20:26:57,935 [1] INFO WPF_RPG_Form.MainWindow - Hello logging world!
+2024-12-09 20:27:30,973 [1] INFO WPF_RPG_Form.App - Hello App!
+2024-12-09 20:27:31,513 [1] INFO WPF_RPG_Form.MainWindow - Hello MainWindow!
