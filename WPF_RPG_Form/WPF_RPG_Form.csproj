@@ -34,6 +34,7 @@
   <ItemGroup>
     <PackageReference Include="Bold.Licensing" Version="6.3.17" />
     <PackageReference Include="BoldReports.WPF" Version="6.3.17" />
+    <PackageReference Include="log4net.Ext.Json" Version="3.0.3" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Log4Net.AspNetCore" Version="8.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
@@ -59,5 +60,10 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Xunit.StaFact" Version="1.1.11" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 </Project>
